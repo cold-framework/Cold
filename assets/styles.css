@@ -1,0 +1,102 @@
+* { 
+    box-sizing: border-box;
+}
+
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    margin: 40px 0 0;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+    'aside content content content content empty'
+}
+
+aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: row;
+}
+
+aside ul {
+    display: flex;
+    margin-right: 20px;
+
+    list-style-type: none;
+    padding-right: 20px;
+
+    align-content: flex-end;
+    flex-direction: column;
+}
+
+aside > ul > li {
+    width: min-content;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+aside hr {
+    flex-grow: 2;
+
+    height: 80px;
+    width: 0;
+
+    border: none;
+    border-left: 1px solid #9B9B9B;
+    writing-mode: vertical-lr;
+
+    margin-top: 20px;
+}
+
+.active {
+    font-weight: 600;
+}
+
+main {
+    grid-area: content;
+}
+
+main > h1 {
+    font-weight: 300;
+    font-size: 48px;
+}
+
+section > h2 {
+    font-weight: normal;
+    font-size: 22px;
+}
+
+form input {
+    margin-right: 10px;
+    margin-left: 3px;
+}
+
+a {
+    margin-left: 10px;
+
+    font-size: 20px;
+    line-height: 25px;
+    text-decoration: none;
+
+    color: #000000;
+}
+
+li {
+    list-style-type: none;
+}
+
+.fa-check-circle {
+    color: #008F0E;
+    margin-right: 10px;
+}
