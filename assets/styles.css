@@ -76,7 +76,7 @@ form > section {
     margin: 50px 15px
 }
 
-form > section > section {
+.row {
     margin: 15px 0 0;
     display: flex;
 }

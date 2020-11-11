@@ -4,7 +4,7 @@
 
 *C'est un projet de cours réaliser durant mon premier trimestre de premiere spécialité NSI*
 
-Ce projet de cours est réalisé entre le 3 Novembre 2020 et 1er Decembre 2020. Le but est, comme indiquer dans le PDF de ``tools/support-de-cours`` est de réaliser un petit site web pour un site d'hebergement de gites autour de la Loire. L'objectif est de concevoir un formulaire de réservation et sauvegarder les données dans un fichier texte sur le serveur. Il faudra aussi rendre 3 documents, un sur les base de l'HTML, un autre sur les bases du JS et un dernier sur une introduction à PHP
+Ce projet de cours est réalisé entre le 3 Novembre 2020 et 1er Decembre 2020. Le but est, comme indiquer dans le PDF de ``tools/support-de-cours`` est de réaliser un petit site web pour un site d'hebergement de gites autour de la Loire. L'objectif est de concevoir un formulaire de réservation et sauvegarder les données dans un fichier texte sur le serveur. Il faudra aussi rendre 3 documents, un sur les base de l'HTML, un autre sur les bases du JS et un dernier sur une introduction à PHP.
 
 ## Organisation du projet
 
@@ -16,7 +16,11 @@ Le suit pour le moment une architecture assez simple. La racine étant le dossie
     └───support-de-cours
 ```
 
-## TO DO:
+## Outils
+
+La maquette est disponnible sur [Figma](https://www.figma.com/file/UqCC0zP1vEjY7tTGodFdLQ/la-loire-a-velo?node-id=0%3A1)
+
+## TO DO
 
 Base minimal pour par rapport au cahier des charges: 
 
@@ -27,11 +31,12 @@ Base minimal pour par rapport au cahier des charges:
 Pour aller plus loin:
 
 - Gestion du responsive
-- Gestion des éléments du formulaire avec Preact
-- Utilisaiton d'un makefile pour simplifier toute les commandes
-- Backend avec Symfony
 - Utilisation de Vite.JS pour les assets dans l'env de dev
 - Utilisation de Rollup pour les assets dans l'env de prod
+- Gestion des éléments du formulaire avec Preact
+- Utilisation de Turbolink
+- Utilisaiton d'un makefile pour simplifier toutes les commandes
+- Backend avec Symfony
 - Mise en place d'un petit backoffice avec un systeme de notification (ws sur le site + mail) pour l'admin
 - Mise en place de GitHub Action pour le CI
 - Utilisation de linter twig/php/css/js
