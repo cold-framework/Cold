@@ -20,7 +20,7 @@ body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
-    'aside content content content content empty'
+    'aside content content content empty empty'
 }
 
 aside {
@@ -72,6 +72,20 @@ main > h1 {
     font-size: 48px;
 }
 
+form > section {
+    margin: 50px 15px
+}
+
+form > section > section {
+    margin: 15px 0 0;
+    display: flex;
+}
+
+form > section > section > section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 section > h2 {
     font-weight: normal;
     font-size: 22px;
@@ -79,7 +93,42 @@ section > h2 {
 
 form input {
     margin-right: 10px;
-    margin-left: 3px;
+    margin-left: 10px;
+    height: 28px;
+}
+
+form input[type="number"] {
+    width: 50px;
+}
+
+form input[type="email"] {
+    width: 300px;
+}
+
+form input[type="tel"] {
+    width: 120px;
+}
+
+form input[type="submit"] {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 14px;
+    outline: 0;
+    font-size: 18px;
+
+    width: 150px;
+    height: 40px;
+}
+
+form textarea {
+    width: 100%;
+    font-size: 17px;
+}
+
+.submit {
+    display: flex;
+    justify-content: flex-end;
+    
 }
 
 a {
@@ -100,3 +149,12 @@ li {
     color: #008F0E;
     margin-right: 10px;
 }
+
+.fa-circle-notch {
+    color: #9E1D1D;
+}
+
+.fa-info-circle {
+    color: #22A2FF;
+}
+

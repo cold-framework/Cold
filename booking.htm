@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Réservation | La Loire à vélo</title>
 		<link rel="stylesheet" href="./assets/styles.css">
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/144cef3fee.js" crossorigin="anonymous"></script>
 		<script src="./assets/app.js" async defer></script>
 	</head>
 	<body>
@@ -20,32 +20,91 @@
 						<a href="./booking.htm" class="active">Reserver</a>
 					</li>
 					<li>
-						<a href="./contact.htm">Contact</a>
+						<a href="./about.htm">Contact</a>
 					</li>
 				</ul>
 				<hr>
 			</aside>
 			<main>
-                <h1>Venez decouvrir la loire au fil de l’eau</h1>
-                <form action="" method="GET">
-                    <section>
-						<h2><i class="fa fa-check-circle" aria-hidden="true"></i>
-						Veuillez entrer vos dates de séjour afin de verifier la disponibilité</h2>
-                        <label for="arival">Nous arrivons le:</label>
-                        <input type="date" id="arival" value="2020-10-11">
-                        <label for="departure">Nous repartirons le:</label>
-                        <input type="date" id="departure" value="2020-10-12">
-                    </section>
-                    <section>
-						<h2><i class="fa fa-check-circle" aria-hidden="true"></i>
-							Veuillez remplir certaintes informations sur les differentes personnes </h2>
-                        <label for="arival">Nombre d’adulte:</label>
-                        <input type="number" id="adult" max="10">
-                        <label for="departure">Nombre d’enfant:</label>
-                        <input type="number" id="child" max="16">  
-                    </section>
+				<h1>Venez découvrir la Loire au fil de l’eau</h1>
+				<form action="" method="GET">
+					<section>
+						<h2>
+							<i class="fa fa-check-circle"></i>
+							Veuillez entrer vos dates de séjour afin de verifier la disponibilité</h2>
+						<section>
+							<section>
+								<label for="arival">Nous arrivons le:</label>
+								<input type="date" id="arival" value="2020-10-11">
+							</section>
+							<label for="departure">Nous repartirons le:</label>
+							<input type="date" id="departure" value="2020-10-12">
+						</section>
+					</section>
+					<section>
+						<h2>
+							<i class="fa fa-check-circle"></i>
+							Veuillez remplir certaines informations sur les differentes personnes
+						</h2>
+						<section>
+							<section>
+								<label for="adult">Nombre d’adulte:</label>
+								<input type="number" id="adult" max="10">
+							</section>
+							<section>
+								<label for="child">Nombre d’enfant:</label>
+								<input type="number" id="child" max="16">
+							</section>
+						</section>
+					</section>
+					<section>
+						<h2>
+							<i class="fas fa-circle-notch"></i>
+							Veuillez entrer vos informations personnelles nécéssaire au traitement de la resérvation</h2>
+						<section>
+							<section>
+								<label for="name">Prénom:</label>
+								<input type="text">
+							</section>
+							<section>
+								<label for="surname">Nom de famille:</label>
+								<input type="text">
+							</section>
+						</section>
+						<section>
+							<section>
+								<label for="email">Votre adresse email:</label>
+								<input type="email">
+							</section>
+						</section>
+						<section>
+							<section>
+								<label for="phone">Votre numéro de téléphone:</label>
+								<input type="tel" id="phone">
+							</section>
+						</section>
+						<section>
+							<section>
+								<label for="city">Votre ville:</label>
+								<input type="text" id="city">
+							</section>
+							<section>
+								<label for="postal_code">Votre code postal:</label>
+								<input type="text" id="postal_code">
+							</section>
+						</section>
+					</section>
+					<section>
+						<h2>
+							<i class="fas fa-info-circle"></i>
+							Avez vous des informations complementaire à nous addresser ?</h2>
+						<textarea></textarea>
+					</section>
+					<section class="submit">
+						<input type="submit" value="Je reserve"/>
+					</section>
 				</form>
 			</main>
-		</div>
+		</body>
 	</body>
 </html>
