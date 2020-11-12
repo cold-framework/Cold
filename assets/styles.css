@@ -13,18 +13,37 @@ body {
   margin: 0;
 }
 
+a {
+  margin-left: 10px;
+
+  font-size: 20px;
+  line-height: 25px;
+  text-decoration: none;
+
+  color: #000000;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 60px;
+}
+
 .wrapper {
   margin: 40px 0 0;
 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-areas: "nav content content content empty empty";
+  grid-template-areas: "nav content content content content empty";
 }
 
 nav {
   grid-area: nav;
   display: flex;
-  flex-direction: row;
 }
 
 nav ul {
@@ -63,11 +82,6 @@ nav hr {
 
 main {
   grid-area: content;
-}
-
-main > h1 {
-  font-weight: 300;
-  font-size: 48px;
 }
 
 form > section {
@@ -119,27 +133,14 @@ form input[type="submit"] {
 }
 
 form textarea {
-  width: 100%;
+  width: 75%;
   font-size: 17px;
 }
 
 .submit {
   display: flex;
   justify-content: flex-end;
-}
-
-a {
-  margin-left: 10px;
-
-  font-size: 20px;
-  line-height: 25px;
-  text-decoration: none;
-
-  color: #000000;
-}
-
-li {
-  list-style-type: none;
+  margin-right: 25%;
 }
 
 .group--title {
@@ -151,6 +152,10 @@ li {
   font-size: 22px;
   margin: 0;
 }
+
+/*
+ * Icon Font Awsome
+ */
 
 .fa-check-circle {
   color: #008f0e;
