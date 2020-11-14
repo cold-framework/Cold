@@ -46,6 +46,7 @@ h1 {
     font-weight: 300;
     font-size: 24px;
     line-height: 30px;
+    margin: 10px 0 0;
 }
 
 ul {
@@ -72,6 +73,7 @@ main {
 .group--title {
     display: flex;
     margin: 15px 0;
+    align-items: baseline;
 }
 
 .group--title h2 {
@@ -205,6 +207,11 @@ textarea {
     .field {
         display: flex;
         margin: 0;
+        flex-wrap: nowrap;
+    }
+
+    label {
+        white-space: nowrap;
     }
 
     section > h2 {

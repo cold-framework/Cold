@@ -30,7 +30,8 @@ Base minimal pour par rapport au cahier des charges:
 
 Pour aller plus loin:
 
-- Gestion du responsive
+- ~~Gestion du responsive~~
+
 - Utilisation de Vite.JS pour les assets dans l'env de dev
 - Utilisation de Rollup pour les assets dans l'env de prod
 - Gestion des éléments du formulaire avec Preact
