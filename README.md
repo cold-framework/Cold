@@ -1,5 +1,9 @@
 # La loire à velo
 
+## Note au professeur
+
+Ce qu'il y a à rendre pour chaque semaine sera sur une branche séparer (quand je le rendrai le projet sera correctement checkout). En plus de l'envoyer par Teams, le projet est disponnible sur [Github](https://github.com/Superkooka/loire-a-velo) en priver. Envoyez-moi votre usename que je puisse vous y invitez. La branch principal et ma branch perso avec quelques features ainsi que outils en plus.
+
 ## Presentation du projet
 
 *C'est un projet de cours réaliser durant mon premier trimestre de premiere spécialité NSI*
@@ -16,19 +20,27 @@ Le suit pour le moment une architecture assez simple. La racine étant le dossie
     └───support-de-cours
 ```
 
+## Mise en route du projet
+
+Pour lancer le projet dans votre environnement de developpement vous aurez besoin de docker ainsi que docker-compose ou alors :
+
+- Makefile (recommander)
+- NodeJS avec NPM (obligatoire pour le build des assets)
+- PHP >= 7.4 avec Composer (obligatoire pour faire tourner le back)
+
 ## Outils
 
 La maquette est disponnible sur [Figma](https://www.figma.com/file/UqCC0zP1vEjY7tTGodFdLQ/la-loire-a-velo?node-id=0%3A1)
 
 ## TO DO
 
-Base minimal pour par rapport au cahier des charges: 
+Base minimal pour par rapport au cahier des charges : 
 
 - Utilisation du JavaScript pour gérer les évènements du formulaire 
 - Récuperation des données dans un fichier texte au niveau du serveur
 - Redirection sur une page avec le récapitulatif des données envoyer
 
-Pour aller plus loin:
+Pour aller plus loin :
 
 - ~~Gestion du responsive~~
 
@@ -43,4 +55,5 @@ Pour aller plus loin:
 - Utilisation de linter twig/php/css/js
 - Ecriture de deux trois tests unitaire
 - Dockerisation du projet
-- Deployement du projet (si j'ai le temps + l'envie: ansible)
+
+Deployement du projet (si j'ai le temps + l'envie : ansible)
