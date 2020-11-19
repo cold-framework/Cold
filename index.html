@@ -4,42 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&eacute;servation | La Loire &agrave; v&eacute;lo</title>
-    <link rel="stylesheet" href="./assets/styles.css">
+<link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/mobile-first.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
           rel="stylesheet">
     <script src="https://kit.fontawesome.com/144cef3fee.js" crossorigin="anonymous"></script>
     <script src="./assets/app.js" async defer></script>
 </head>
 <body>
-<div class="wrapper">
-    <nav>
+<div class="container">
+    <nav class="flex col">
         <ul>
             <li>
-                <a href="./index.htm">Accueil</a>
+                <a href="#">Accueil</a>
             </li>
             <li>
-                <a href="./booking.htm" class="active">Reserver</a>
+                <a href="#" class="active">Reserver</a>
             </li>
             <li>
-                <a href="./about.htm">Contact</a>
+                <a href="#">Contact</a>
             </li>
         </ul>
         <hr>
     </nav>
-    <div class="title">
-        <h1>Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
+    <div class="flex justify-center">
+        <h1 class="text-big md:text-xl">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
     </div>
     <main>
-        <form action="" method="POST">
+        <form>
             <section>
-                <div class="group-title">
+                <div class="flex items-baseline my-16">
                     <i class="fa fa-check-circle"></i>
-                    <h2>Veuillez entrer vos dates de s&eacute;jour afin de verifier la disponibilit&eacute;</h2>
+					<h2 class="text-big">Veuillez entrer vos dates de s&eacute;jour afin de verifier la disponibilit&eacute;</h2>
                 </div>
-                <p class="md:row">
-                     <span class="row">
+                <p class="md:flex md:row">
+                     <span class="flex row md:mr-16">
                      	<label for="arival">Nous arrivons le:</label>
-                     	<input type="date" id="arival" value="2020-10-11">
+                     	<input type="date" id="arival" value="2020-10-11" class="ml-5">
                      </span>
                     <span class="row">
                      	<label for="departure">Nous repartirons le:</label>
@@ -48,9 +49,9 @@
                 </p>
             </section>
             <section>
-                <div class="group-title">
+                <div class="flex items-baseline my-16">
                     <i class="fa fa-check-circle"></i>
-                    <h2>Veuillez remplir certaines informations sur les differentes personnes</h2>
+                    <h2 class="text-big">Veuillez remplir certaines informations sur les differentes personnes</h2>
                 </div>
                 <p class="md:row">
                      <span class="row">
@@ -64,9 +65,9 @@
                 </p>
             </section>
             <section>
-                <div class="group-title">
+                <div class="flex items-baseline my-16">
                     <i class="fas fa-circle-notch"></i>
-                    <h2>Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation</h2>
+                    <h2 class="text-big">Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation</h2>
                 </div>
                 <p class="md:row">
                      <span class="row">
@@ -102,11 +103,13 @@
                 </p>
             </section>
             <section>
-                <div class="group-title">
+                <div class="flex items-baseline my-16">
                     <i class="fas fa-info-circle"></i>
-                    <h2>Avez vous des informations complementaire &agrave; nous addresser ?</h2>
+                    <h2 class="text-big">Avez vous des informations complementaire &agrave; nous addresser ?</h2>
                 </div>
-                <textarea></textarea>
+                <label>
+                    <textarea></textarea>
+                </label>
             </section>
             <section class="submit">
                 <input type="submit" value="Je reserve"/>

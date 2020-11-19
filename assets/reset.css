@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+h2 {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+html {
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+body {
+  margin: 0 20px;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+a {
+  font-size: 20px;
+  line-height: 25px;
+  text-decoration: none;
+
+  color: #000000;
+}
+
+li {
+  list-style-type: none;
+}
