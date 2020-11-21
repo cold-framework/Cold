@@ -15,18 +15,3 @@ ul {
 li {
   list-style-type: none;
 }
-
-html {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 25px;
-}
-
-a {
-  font-size: 20px;
-  line-height: 25px;
-  text-decoration: none;
-
-  color: #000000;
-}
