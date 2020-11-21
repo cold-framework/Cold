@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="font-sans text-normal">
+<html lang="fr" class="font-sans">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,9 +43,10 @@
                      	<label for="arival">Nous arrivons le:</label>
                      	<input type="date" id="arival" value="2020-10-11" class="ml-5">
                      </span>
-                    <span class="row">
+                    <span class="flex row md:mr-16">
                      	<label for="departure">Nous repartirons le:</label>
-                     	<input type="date" id="departure" value="2020-10-12">
+<input type="date" id="departure" value="2020-10-12" class="ml-5">
+
                      </span>
                 </p>
             </section>
@@ -54,14 +55,16 @@
                     <i class="fa fa-check-circle"></i>
                     <h2 class="text-big text-regular">Veuillez remplir certaines informations sur les differentes personnes</h2>
                 </div>
-                <p class="md:row">
-                     <span class="row">
+                <p class="md:flex md:row">
+                     <span class="flex row md:mr-16">
                      	<label for="adult">Nombre d&rsquo;adulte:</label>
-                     	<input type="number" id="adult" max="10">
+<input type="number" id="adult" max="10" class="ml-5">
+
                      </span>
-                    <span class="row">
+                    <span class="flex row md:mr-16">
                      	<label for="child">Nombre d&rsquo;enfant:</label>
-                     	<input type="number" id="child" max="16">
+<input type="number" id="child" max="16" class="ml-5">
+
                      </span>
                 </p>
             </section>
@@ -70,36 +73,36 @@
                     <i class="fas fa-circle-notch"></i>
                     <h2 class="text-big text-regular">Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation</h2>
                 </div>
-                <p class="md:row">
-                     <span class="row">
+                <p class="md:flex md:row">
+                     <span class="flex row md:mr-16">
                      	<label for="name">Pr&eacute;nom:</label>
-                     	<input type="text" id="name">
+                     	<input type="text" id="name" class="ml-5">
                      </span>
-                    <span class="row">
+                    <span class="flex row md:mr-16">
                      	<label for="surname">Nom de famille:</label>
-                     	<input type="text" id="surname">
+                     	<input type="text" id="surname" class="ml-5">
                      </span>
                 </p>
-                <p class="md:row">
-                     <span class="row">
+                <p class="md:flex md:row">
+                     <span class="flex row md:mr-16">
                      	<label for="email">Votre adresse email:</label>
-                     	<input type="email" id="email">
+                     	<input type="email" id="email" class="ml-5">
                      </span>
                 </p>
-                <p class="md:row">
-                     <span class="row">
+                <p class="md:flex md:row">
+                     <span class="flex row md:mr-16">
                      	<label for="phone">Votre num&eacute;ro de t&eacute;l&eacute;phone:</label>
-                     	<input type="tel" id="phone">
+                     	<input type="tel" id="phone" class="ml-5">
                      </span>
                 </p>
-                <p class="md:row">
-                     <span class="row">
+                <p class="md:flex md:row">
+                     <span class="flex row md:mr-16">
                      	<label for="city">Votre ville:</label>
-                     	<input type="text" id="city">
+                     	<input type="text" id="city" class="ml-5">
                      </span>
-                    <span class="row">
+                    <span class="flex row md:mr-16">
                      	<label for="postal_code">Votre code postal:</label>
-                     	<input type="text" id="postal_code">
+                     	<input type="text" id="postal_code" class="ml-5">
                      </span>
                 </p>
             </section>
@@ -109,12 +112,10 @@
                     <h2 class="text-big text-regular">Avez vous des informations complementaire &agrave; nous addresser ?</h2>
                 </div>
                 <label>
-                    <textarea></textarea>
+                    <textarea class="w-full"></textarea>
                 </label>
             </section>
-            <section class="submit">
-                <input type="submit" value="Je reserve"/>
-            </section>
+            <input type="submit" value="Je reserve"/>
         </form>
     </main>
 </div>
