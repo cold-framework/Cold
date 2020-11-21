@@ -3,6 +3,7 @@
 }
 
 body,
+h1,
 h2 {
   margin: 0;
 }
@@ -11,20 +12,15 @@ ul {
   padding: 0;
 }
 
+li {
+  list-style-type: none;
+}
+
 html {
-  font-family: "Source Sans Pro", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 25px;
-}
-
-body {
-  margin: 0 20px;
-}
-
-h2 {
-  font-weight: 400;
 }
 
 a {
@@ -33,8 +29,4 @@ a {
   text-decoration: none;
 
   color: #000000;
-}
-
-li {
-  list-style-type: none;
 }
