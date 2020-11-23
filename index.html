@@ -11,13 +11,13 @@
 	</head>
 	<body>
 
-		<div class="mx-16 lg:grid">
-			<div class="flex justify-center lg:justify-start mt-16 lg:row-start-1 lg:col-start-2 lg:row-end-2 lg:col-end-5">
+		<div class="mx-16 lg:grid lg:my-8">
+			<div class="flex justify-center lg:justify-start my-16 lg:my-32 lg:row-start-1 lg:col-start-2 lg:row-end-2 lg:col-end-5">
 				<h1 class="text-2xl lg:text-5xl text-light lg:align-start">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
 			</div>
 
-			<nav class="flex col justify-center lg:row-start-1 lg:col-start-1 lg:row-end-6 lg:col-end-2 lg:row lg:mt-72">
-				<ul class="flex justify-around mt-8 lg:w-fit lg:col lg:self-start lg:mr-16">
+			<nav class="flex col justify-center lg:row-start-1 lg:col-start-1 lg:row-end-6 lg:col-end-2 lg:row lg:mt-72 lg:mr-32">
+				<ul class="flex justify-around mt-8 lg:w-fit lg:col lg:self-start lg:mr-64">
 					<li>
 						<a href="#" class="text-black no-underline text-xl">Accueil</a>
 					</li>
@@ -28,11 +28,11 @@
 						<a href="#" class="text-black no-underline text-xl">Contact</a>
 					</li>
 				</ul>
-				<hr class="w-3/4 my-8 flex self-center border-0 border-t-1 lg:border-0 lg:border-l-1 border-gray-600 lg:h-3 lg:w-0 lg:mt-16 lg:self-start">
+				<hr class="w-3/4 my-8 flex self-center border-0 border-t-1 lg:border-0 lg:border-l-1 border-gray-600 lg:h-4.5 lg:w-0 lg:mt-16 lg:self-start">
 			</nav>
 
-			<main class="flex col lg:row-start-2 lg:col-start-2 lg:row-end-6 lg:col-end-5">
-				<form>
+			<main class="flex col lg:row-start-2 lg:col-start-2 lg:row-end-6 lg:col-end-5 lg:mt-16">
+				<form action="" method="POST">
 					<section>
 						<h2 class="text-xl text-regular my-16">
 							<i class="fa fa-check-circle text-green-600"></i>
@@ -109,10 +109,12 @@
 							Avez vous des informations complementaire &agrave; nous addresser ?
 						</h2>
 						<label>
-							<textarea class="w-full"></textarea>
+							<textarea class="w-full lg:w-2/3"></textarea>
 						</label>
 					</section>
-					<input type="submit" value="Je reserve"/>
+					<section class="flex justify-end">
+						<input type="submit" class="btn px-16 py-8 lg:mr-1/5 mt-16 bg-gray-200 hover:bg-white" value="Je reserve" style="border: 1px solid #000000;border-radius: 14px;"/>
+					</section>
 				</form>
 			</main>
 		</div>
