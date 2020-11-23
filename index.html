@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="container mx-16">
+<div class="flex col mx-16 md:grid gap-4">
     <div class="flex justify-center mt-16">
         <h1 class="text-2xl md:text-3xl text-light">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
     </div>
@@ -39,14 +39,14 @@
                     Veuillez entrer vos dates de s&eacute;jour afin de verifier la disponibilit&eacute;
                 </h2>
                 <p class="md:flex md:row">
-                     <span class="flex row md:mr-16">
+                     <span class="flex row md:mr-16 md:my-8">
                      	<label for="arival">Nous arrivons le:</label>
                      	<input type="date" id="arival" value="2020-10-11" class="ml-5">
                      </span>
-                    <span class="flex row md:mr-16">
+                    <span class="flex row md:mr-16 md:my-8">
                      	<label for="departure">Nous repartirons le:</label>
                         <input type="date" id="departure" value="2020-10-12" class="ml-5">
-                     </span>
+                    </span>
                 </p>
             </section>
             <section>
@@ -55,11 +55,11 @@
                     Veuillez remplir certaines informations sur les differentes personnes
                 </h2>
                 <p class="md:flex md:row">
-                     <span class="flex row md:mr-16">
+                     <span class="flex row md:mr-16 md:my-8">
                      	<label for="adult">Nombre d&rsquo;adulte:</label>
                         <input type="number" id="adult" max="10" class="ml-5">
                      </span>
-                    <span class="flex row md:mr-16">
+                    <span class="flex row md:mr-16 md:my-8">
                      	<label for="child">Nombre d&rsquo;enfant:</label>
                         <input type="number" id="child" max="16" class="ml-5">
                      </span>
@@ -71,33 +71,33 @@
                     Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation
                 </h2>
                 <p class="md:flex md:row">
-                     <span class="flex row md:mr-16">
+                     <span class="flex row md:mr-16 md:my-8">
                      	<label for="name">Pr&eacute;nom:</label>
                      	<input type="text" id="name" class="ml-5">
                      </span>
-                    <span class="flex row md:mr-16">
+                    <span class="flex row md:mr-16 md:my-8">
                      	<label for="surname">Nom de famille:</label>
                      	<input type="text" id="surname" class="ml-5">
                      </span>
                 </p>
                 <p class="md:flex md:row">
-                     <span class="flex row md:mr-16">
+                     <span class="flex row md:mr-16 md:my-8">
                      	<label for="email">Votre adresse email:</label>
                      	<input type="email" id="email" class="ml-5">
                      </span>
                 </p>
                 <p class="md:flex md:row">
-                     <span class="flex row md:mr-16">
+                     <span class="flex row md:mr-16 md:my-8">
                      	<label for="phone">Votre num&eacute;ro de t&eacute;l&eacute;phone:</label>
                      	<input type="tel" id="phone" class="ml-5">
                      </span>
                 </p>
                 <p class="md:flex md:row">
-                     <span class="flex row md:mr-16">
+                     <span class="flex row md:mr-16 md:my-8">
                      	<label for="city">Votre ville:</label>
                      	<input type="text" id="city" class="ml-5">
                      </span>
-                    <span class="flex row md:mr-16">
+                    <span class="flex row md:mr-16 md:my-8">
                      	<label for="postal_code">Votre code postal:</label>
                      	<input type="text" id="postal_code" class="ml-5">
                      </span>

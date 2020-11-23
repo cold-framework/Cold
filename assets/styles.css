@@ -1,8 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
 .hidden {
   display: none;
 }
@@ -103,7 +98,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  .md\:.my-8 {
+  .md\:my-8 {
     margin-top: 8px;
     margin-bottom: 8px;
   }
@@ -1102,4 +1097,12 @@ text-transparent {
   .md\:.items-baseline {
     align-items: baseline;
   }
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
