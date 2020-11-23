@@ -1,120 +1,120 @@
 <!DOCTYPE html>
 <html lang="fr" class="font-sans">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R&eacute;servation | La Loire &agrave; v&eacute;lo</title>
-    <link rel="stylesheet" href="./assets/reset.css">
-    <link rel="stylesheet" href="./assets/styles.css">
-    <script src="https://kit.fontawesome.com/144cef3fee.js" crossorigin="anonymous"></script>
-    <script src="./assets/app.js" async defer></script>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>R&eacute;servation | La Loire &agrave; v&eacute;lo</title>
+		<link rel="stylesheet" href="./assets/reset.css">
+		<link rel="stylesheet" href="./assets/styles.css">
+		<script src="https://kit.fontawesome.com/144cef3fee.js" crossorigin="anonymous"></script>
+		<script src="./assets/app.js" async defer></script>
+	</head>
+	<body>
 
-<div class="flex col mx-16 md:grid gap-4">
-    <div class="flex justify-center mt-16">
-        <h1 class="text-2xl md:text-3xl text-light">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
-    </div>
+		<div class="mx-16 lg:grid">
+			<div class="flex justify-center lg:justify-start mt-16 lg:row-start-1 lg:col-start-2 lg:row-end-2 lg:col-end-5">
+				<h1 class="text-2xl lg:text-5xl text-light lg:align-start">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
+			</div>
 
-    <nav class="flex col justify-center">
-        <ul class="flex justify-around mt-8">
-            <li>
-                <a href="#" class="text-black no-underline ">Accueil</a>
-            </li>
-            <li>
-                <a href="#" class="text-black text-bold no-underline">Reserver</a>
-            </li>
-            <li>
-                <a href="#" class="text-black no-underline">Contact</a>
-            </li>
-        </ul>
-        <hr class="w-3/4 my-8 flex self-center" style="border-left: 1px solid #9b9b9b;">
-    </nav>
+			<nav class="flex col justify-center lg:row-start-1 lg:col-start-1 lg:row-end-6 lg:col-end-2 lg:row lg:mt-72">
+				<ul class="flex justify-around mt-8 lg:w-fit lg:col lg:self-start lg:mr-16">
+					<li>
+						<a href="#" class="text-black no-underline text-xl">Accueil</a>
+					</li>
+					<li>
+						<a href="#" class="text-black text-bold no-underline text-xl">Reserver</a>
+					</li>
+					<li>
+						<a href="#" class="text-black no-underline text-xl">Contact</a>
+					</li>
+				</ul>
+				<hr class="w-3/4 my-8 flex self-center border-0 border-t-1 lg:border-0 lg:border-l-1 border-gray-600 lg:h-3 lg:w-0 lg:mt-16 lg:self-start">
+			</nav>
 
-    <main class="flex col">
-        <form>
-            <section>
-                <h2 class="text-xl text-regular my-16">
-	                <i class="fa fa-check-circle text-green-600"></i>
-                    Veuillez entrer vos dates de s&eacute;jour afin de verifier la disponibilit&eacute;
-                </h2>
-                <p class="md:flex md:row">
-                     <span class="flex row md:mr-16 md:my-8">
-                     	<label for="arival">Nous arrivons le:</label>
-                     	<input type="date" id="arival" value="2020-10-11" class="ml-5">
-                     </span>
-                    <span class="flex row md:mr-16 md:my-8">
-                     	<label for="departure">Nous repartirons le:</label>
-                        <input type="date" id="departure" value="2020-10-12" class="ml-5">
-                    </span>
-                </p>
-            </section>
-            <section>
-                <h2 class="text-xl text-regular my-16">
-                    <i class="fa fa-check-circle  text-green-600"></i>
-                    Veuillez remplir certaines informations sur les differentes personnes
-                </h2>
-                <p class="md:flex md:row">
-                     <span class="flex row md:mr-16 md:my-8">
-                     	<label for="adult">Nombre d&rsquo;adulte:</label>
-                        <input type="number" id="adult" max="10" class="ml-5">
-                     </span>
-                    <span class="flex row md:mr-16 md:my-8">
-                     	<label for="child">Nombre d&rsquo;enfant:</label>
-                        <input type="number" id="child" max="16" class="ml-5">
-                     </span>
-                </p>
-            </section>
-            <section>
-                <h2 class="my-16 text-xl text-regular">
-                    <i class="fas fa-circle-notch text-red-600"></i>
-                    Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation
-                </h2>
-                <p class="md:flex md:row">
-                     <span class="flex row md:mr-16 md:my-8">
-                     	<label for="name">Pr&eacute;nom:</label>
-                     	<input type="text" id="name" class="ml-5">
-                     </span>
-                    <span class="flex row md:mr-16 md:my-8">
-                     	<label for="surname">Nom de famille:</label>
-                     	<input type="text" id="surname" class="ml-5">
-                     </span>
-                </p>
-                <p class="md:flex md:row">
-                     <span class="flex row md:mr-16 md:my-8">
-                     	<label for="email">Votre adresse email:</label>
-                     	<input type="email" id="email" class="ml-5">
-                     </span>
-                </p>
-                <p class="md:flex md:row">
-                     <span class="flex row md:mr-16 md:my-8">
-                     	<label for="phone">Votre num&eacute;ro de t&eacute;l&eacute;phone:</label>
-                     	<input type="tel" id="phone" class="ml-5">
-                     </span>
-                </p>
-                <p class="md:flex md:row">
-                     <span class="flex row md:mr-16 md:my-8">
-                     	<label for="city">Votre ville:</label>
-                     	<input type="text" id="city" class="ml-5">
-                     </span>
-                    <span class="flex row md:mr-16 md:my-8">
-                     	<label for="postal_code">Votre code postal:</label>
-                     	<input type="text" id="postal_code" class="ml-5">
-                     </span>
-                </p>
-            </section>
-            <section>
-                <h2 class="text-xl text-regular my-16">
-                    <i class="fas fa-info-circle text-blue-600"></i>
-                    Avez vous des informations complementaire &agrave; nous addresser ?
-                </h2>
-                <label>
-                    <textarea class="w-full"></textarea>
-                </label>
-            </section>
-            <input type="submit" value="Je reserve"/>
-        </form>
-    </main>
-</div>
-</body>
+			<main class="flex col lg:row-start-2 lg:col-start-2 lg:row-end-6 lg:col-end-5">
+				<form>
+					<section>
+						<h2 class="text-xl text-regular my-16">
+							<i class="fa fa-check-circle text-green-600"></i>
+							Veuillez entrer vos dates de s&eacute;jour afin de verifier la disponibilit&eacute;
+						</h2>
+						<p class="lg:flex lg:row">
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="arival">Nous arrivons le:</label>
+								<input type="date" id="arival" value="2020-10-11" class="ml-5">
+							</span>
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="departure">Nous repartirons le:</label>
+								<input type="date" id="departure" value="2020-10-12" class="ml-5">
+							</span>
+						</p>
+					</section>
+					<section>
+						<h2 class="text-xl text-regular my-16">
+							<i class="fa fa-check-circle  text-green-600"></i>
+							Veuillez remplir certaines informations sur les differentes personnes
+						</h2>
+						<p class="lg:flex lg:row">
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="adult">Nombre d&rsquo;adulte:</label>
+								<input type="number" id="adult" max="10" class="ml-5">
+							</span>
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="child">Nombre d&rsquo;enfant:</label>
+								<input type="number" id="child" max="16" class="ml-5">
+							</span>
+						</p>
+					</section>
+					<section>
+						<h2 class="my-16 text-xl text-regular">
+							<i class="fas fa-circle-notch text-red-600"></i>
+							Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation
+						</h2>
+						<p class="lg:flex lg:row">
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="name">Pr&eacute;nom:</label>
+								<input type="text" id="name" class="ml-5">
+							</span>
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="surname">Nom de famille:</label>
+								<input type="text" id="surname" class="ml-5">
+							</span>
+						</p>
+						<p class="lg:flex lg:row">
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="email">Votre adresse email:</label>
+								<input type="email" id="email" class="ml-5">
+							</span>
+						</p>
+						<p class="lg:flex lg:row">
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="phone">Votre num&eacute;ro de t&eacute;l&eacute;phone:</label>
+								<input type="tel" id="phone" class="ml-5">
+							</span>
+						</p>
+						<p class="lg:flex lg:row">
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="city">Votre ville:</label>
+								<input type="text" id="city" class="ml-5">
+							</span>
+							<span class="flex row lg:mr-16 lg:my-8">
+								<label for="postal_code">Votre code postal:</label>
+								<input type="text" id="postal_code" class="ml-5">
+							</span>
+						</p>
+					</section>
+					<section>
+						<h2 class="text-xl text-regular my-16">
+							<i class="fas fa-info-circle text-blue-600"></i>
+							Avez vous des informations complementaire &agrave; nous addresser ?
+						</h2>
+						<label>
+							<textarea class="w-full"></textarea>
+						</label>
+					</section>
+					<input type="submit" value="Je reserve"/>
+				</form>
+			</main>
+		</div>
+	</body>
 </html>
