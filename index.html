@@ -13,11 +13,11 @@
 
 <div class="container mx-16">
     <div class="flex justify-center mt-16">
-        <h1 class="text-xl md:text-3xl text-light">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
+        <h1 class="text-2xl md:text-3xl text-light">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
     </div>
 
-    <nav class="flex col">
-        <ul>
+    <nav class="flex col justify-center">
+        <ul class="flex justify-around mt-8">
             <li>
                 <a href="#" class="text-black no-underline ">Accueil</a>
             </li>
@@ -28,16 +28,16 @@
                 <a href="#" class="text-black no-underline">Contact</a>
             </li>
         </ul>
-        <hr>
+        <hr class="w-3/4 my-8 flex self-center" style="border-left: 1px solid #9b9b9b;">
     </nav>
 
     <main class="flex col">
         <form>
             <section>
-                <div class="flex items-baseline my-16">
-                    <i class="fa fa-check-circle"></i>
-					<h2 class="text-big text-regular">Veuillez entrer vos dates de s&eacute;jour afin de verifier la disponibilit&eacute;</h2>
-                </div>
+                <h2 class="text-xl text-regular my-16">
+	                <i class="fa fa-check-circle text-green-600"></i>
+                    Veuillez entrer vos dates de s&eacute;jour afin de verifier la disponibilit&eacute;
+                </h2>
                 <p class="md:flex md:row">
                      <span class="flex row md:mr-16">
                      	<label for="arival">Nous arrivons le:</label>
@@ -45,34 +45,31 @@
                      </span>
                     <span class="flex row md:mr-16">
                      	<label for="departure">Nous repartirons le:</label>
-<input type="date" id="departure" value="2020-10-12" class="ml-5">
-
+                        <input type="date" id="departure" value="2020-10-12" class="ml-5">
                      </span>
                 </p>
             </section>
             <section>
-                <div class="flex items-baseline my-16">
-                    <i class="fa fa-check-circle"></i>
-                    <h2 class="text-big text-regular">Veuillez remplir certaines informations sur les differentes personnes</h2>
-                </div>
+                <h2 class="text-xl text-regular my-16">
+                    <i class="fa fa-check-circle  text-green-600"></i>
+                    Veuillez remplir certaines informations sur les differentes personnes
+                </h2>
                 <p class="md:flex md:row">
                      <span class="flex row md:mr-16">
                      	<label for="adult">Nombre d&rsquo;adulte:</label>
-<input type="number" id="adult" max="10" class="ml-5">
-
+                        <input type="number" id="adult" max="10" class="ml-5">
                      </span>
                     <span class="flex row md:mr-16">
                      	<label for="child">Nombre d&rsquo;enfant:</label>
-<input type="number" id="child" max="16" class="ml-5">
-
+                        <input type="number" id="child" max="16" class="ml-5">
                      </span>
                 </p>
             </section>
             <section>
-                <div class="flex items-baseline my-16">
-                    <i class="fas fa-circle-notch"></i>
-                    <h2 class="text-big text-regular">Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation</h2>
-                </div>
+                <h2 class="my-16 text-xl text-regular">
+                    <i class="fas fa-circle-notch text-red-600"></i>
+                    Veuillez entrer vos informations personnelles n&eacute;c&eacute;ssaire au traitement de la res&eacute;rvation
+                </h2>
                 <p class="md:flex md:row">
                      <span class="flex row md:mr-16">
                      	<label for="name">Pr&eacute;nom:</label>
@@ -107,10 +104,10 @@
                 </p>
             </section>
             <section>
-                <div class="flex items-baseline my-16">
-                    <i class="fas fa-info-circle"></i>
-                    <h2 class="text-big text-regular">Avez vous des informations complementaire &agrave; nous addresser ?</h2>
-                </div>
+                <h2 class="text-xl text-regular my-16">
+                    <i class="fas fa-info-circle text-blue-600"></i>
+                    Avez vous des informations complementaire &agrave; nous addresser ?
+                </h2>
                 <label>
                     <textarea class="w-full"></textarea>
                 </label>
