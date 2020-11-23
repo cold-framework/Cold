@@ -13,7 +13,7 @@ J'ai volontairement (au risque de perdre des points) pas ajouter un dropdown pou
 </select>
 ```
 
-Le nommage des classes en css est pas tiptop comme la gestion du responsive mais je vais modifier ça dans les prochains jours. Les classes seront nommer de la sorte `media:class` par exemple `md:row` pour afficher en ligne sur les écrans de moyene taille (les tablets).
+Le nommage des classes en css est pas tiptop comme la gestion du responsive mais je vais modifier ça dans les prochains jours. Les classes seront nommer de la sorte `media:class` par exemple `lg:row` pour afficher en ligne sur les écrans de moyene taille (les tablets).
 Pour les breakpoints CSS j'ai utiliser les mêmes que ce de TailwindCSS et Bootstrap.
 
 ```css
@@ -58,14 +58,6 @@ Le suit pour le moment une architecture assez simple. La racine étant le dossie
     └───support-de-cours
 ```
 
-## Mise en route du projet
-
-Pour lancer le projet dans votre environnement de developpement vous aurez besoin de docker ainsi que docker-compose ou alors :
-
-- Makefile (recommander)
-- NodeJS avec NPM (obligatoire pour le build des assets)
-- PHP >= 7.4 avec Composer (obligatoire pour faire tourner le back)
-
 ## Outils
 
 La maquette est disponnible sur [Figma](https://www.figma.com/file/UqCC0zP1vEjY7tTGodFdLQ/la-loire-a-velo?node-id=0%3A1)
@@ -81,6 +73,7 @@ Base minimal pour par rapport au cahier des charges :
 Pour aller plus loin :
 
 - ~~Gestion du responsive~~
+- ~~Utilisation d'un TailwindLike (maison)~~
 
 - Utilisation de Vite.JS pour les assets dans l'env de dev
 - Utilisation de Rollup pour les assets dans l'env de prod
@@ -94,4 +87,4 @@ Pour aller plus loin :
 - Ecriture de deux trois tests unitaire
 - Dockerisation du projet
 
-Deployement du projet (si j'ai le temps + l'envie : ansible)
+- Deployement du projet (si j'ai le temps + l'envie : ansible)
