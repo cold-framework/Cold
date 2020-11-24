@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Vé’Loire et une nouvelle entreprise de création et d’aménagement de site d’hébergement sur la Loire à vélo. Elle désire créer un nouveau concept de camp de logement autonome destiné aux cyclistes de la Loire à vélo faisant le parcours en famille.">
+		<meta name="Language" content="fr"/>
 		<title>R&eacute;servation | La Loire &agrave; v&eacute;lo</title>
 		<link rel="stylesheet" href="./assets/reset.css">
 		<link rel="stylesheet" href="./assets/styles.css">
@@ -11,7 +12,6 @@
 		<script src="./assets/app.js" async defer></script>
 	</head>
 	<body>
-
 		<div class="mx-16 lg:grid lg:my-8">
 			<div class="flex justify-center lg:justify-start my-16 lg:my-32 lg:row-start-1 lg:col-start-2 lg:row-end-2 lg:col-end-5">
 				<h1 class="text-2xl lg:text-5xl text-light lg:align-start">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
@@ -58,11 +58,12 @@
 						<p class="lg:flex lg:row">
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="adult">Nombre d&rsquo;adulte:</label>
-								<input type="number" id="adult" max="10" class="ml-5">
+								<input type="number" id="adult" max="10" min="0" class="ml-5">
 							</span>
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="child">Nombre d&rsquo;enfant:</label>
-								<input type="number" id="child" max="16" class="ml-5">
+								<input type="number" id="child" max="16" min="0" class="ml-5">
+
 							</span>
 						</p>
 					</section>
