@@ -1,13 +1,12 @@
 <?php
 
-
-namespace App\Constraint;
+namespace ColdBolt\Validator\Constraint;
 
 class Email extends Constraint
 {
     public function validate(): bool
     {
-        if(!filter_var($this->data, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($this->data, FILTER_VALIDATE_EMAIL)) {
             $this->addError('This email is invalid');
         }
 

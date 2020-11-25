@@ -1,7 +1,6 @@
 <?php
 
-
-namespace App\Constraint;
+namespace ColdBolt\Validator\Constraint;
 
 class NotBlank extends Constraint
 {
@@ -10,7 +9,8 @@ class NotBlank extends Constraint
         return !empty($this->data);
     }
 
-    public function skipAllNextValidation(): bool {
+    public function skipAllNextValidation(): bool
+    {
         return empty($this->data);
     }
 }

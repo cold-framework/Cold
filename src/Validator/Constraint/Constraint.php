@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Constraint;
+namespace ColdBolt\Validator\Constraint;
 
 abstract class Constraint
 {
@@ -14,12 +14,14 @@ abstract class Constraint
 
     abstract public function validate(): bool;
 
-    public function getErrors(): array {
+    public function getErrors(): array
+    {
         return $this->errors;
     }
 
     
-    protected function addError(string $error): void {
+    protected function addError(string $error): void
+    {
         $this->errors[] = $error;
     }
 

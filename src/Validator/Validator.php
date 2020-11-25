@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace ColdBolt\Validator;
 
-use App\Constraint\Constraint;
+use ColdBolt\Validator\Constraint\Constraint;
 
 abstract class Validator
 {
@@ -26,7 +26,7 @@ abstract class Validator
                 }
 
                 /** @var Constraint $constraint */
-                $constraint = new $validation[0]($this->data[$field]);
+                $constraint = new $validation($this->data[$field]);
 
                 $isValidated = $constraint->validate();
 

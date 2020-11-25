@@ -1,0 +1,10 @@
+{
+    "controller": "App\\Controller",
+    "template": "templates/",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "ColdBolt\\": "src/"
+        }
+    }
+}

@@ -42,11 +42,11 @@
 						<p class="lg:flex lg:row">
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="arival">Nous arrivons le:</label>
-								<input type="date" id="arival" value="2020-10-11" class="ml-5" required>
+								<input type="date" name="arival" id="arival" value="2020-10-11" class="ml-5" required>
 							</span>
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="departure">Nous repartirons le:</label>
-								<input type="date" id="departure" value="2020-10-12" class="ml-5" required>
+								<input type="date" name="departure" id="departure" value="2020-10-12" class="ml-5" required>
 							</span>
 						</p>
 					</section>
@@ -58,11 +58,11 @@
 						<p class="lg:flex lg:row">
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="adult">Nombre d&rsquo;adulte:</label>
-								<input type="number" id="adult" max="10" min="1" class="ml-5" required>
+								<input type="number" name="adult" id="adult" max="10" min="1" class="ml-5" required>
 							</span>
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="child">Nombre d&rsquo;enfant:</label>
-								<input type="number" id="child" class="ml-5" max="16" min="0">
+								<input type="number" name="child" id="child" class="ml-5" max="16" min="0">
 							</span>
 						</p>
 					</section>
@@ -74,33 +74,37 @@
 						<p class="lg:flex lg:row">
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="name">Pr&eacute;nom:</label>
-								<input type="text" id="name" class="ml-5" required>
+								<input type="text" name="name" id="name" class="ml-5" required>
 							</span>
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="surname">Nom de famille:</label>
-								<input type="text" id="surname" class="ml-5" required>
+								<input type="text" name="surname" id="surname" class="ml-5" required>
+
 							</span>
 						</p>
 						<p class="lg:flex lg:row">
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="email">Votre adresse email:</label>
-								<input type="email" id="email" class="ml-5" required>
+								<input type="email" name="email" id="email" class="ml-5" required>
 							</span>
 						</p>
 						<p class="lg:flex lg:row">
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="phone">Votre num&eacute;ro de t&eacute;l&eacute;phone:</label>
-								<input type="tel" id="phone" class="ml-5" required>
+								<input type="tel" name="phone" id="phone" class="ml-5" required>
+
 							</span>
 						</p>
 						<p class="lg:flex lg:row">
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="city">Votre ville:</label>
-								<input type="text" id="city" class="ml-5" required>
+								<input type="text" name="city" id="city" class="ml-5" required>
+
 							</span>
 							<span class="flex row lg:mr-16 lg:my-8">
 								<label for="postal_code">Votre code postal:</label>
-								<input type="text" id="postal_code" class="ml-5" required>
+								<input type="text" name="postal_code" id="postal_code" class="ml-5" required>
+
 							</span>
 						</p>
 					</section>
@@ -110,7 +114,7 @@
 							Avez vous des informations complementaire &agrave; nous addresser ?
 						</h2>
 						<label>
-							<textarea class="w-full lg:w-2/3"></textarea>
+							<textarea class="w-full lg:w-2/3" name=""></textarea>
 						</label>
 					</section>
 					<section class="flex justify-end">

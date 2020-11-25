@@ -1,7 +1,13 @@
 <?php
 
+use ColdBolt\Http\Request;
+use ColdBolt\Template;
+
 require_once __DIR__ . '/../src/autoload.php';
 
-Autoloader::register();
+ColdBolt\Autoloader::register();
 
-(new App\Template('index'))->render();
+// $request = Request::createFromGlobals();
+//
+// var_dump($request->getURI());
+(new Template('index'))->render();
