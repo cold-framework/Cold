@@ -5,8 +5,10 @@
 */
 namespace ColdBolt;
 
-require_once __DIR__ . '/Utils/Str.php';
+require_once __DIR__ . '/../Utils/Str.php';
+require_once __DIR__ . '/Exception/NamespaceNotFoundException.php';
 
+use ColdBolt\Autoload\Exception\NamespaceNotFoundException;
 use ColdBolt\Utils\Str;
 
 class Autoloader
@@ -23,8 +25,6 @@ class Autoloader
         spl_autoload_register(function ($class) use ($config) {
             $ns_path = null;
 
-            // var_dump($class);
-
             foreach ($config['psr-4'] as $namespace => $path) {
                 if (Str::str_starts_with($class, $namespace)) {
                     $ns_path = $path;
@@ -33,9 +33,8 @@ class Autoloader
             }
 
             if ($ns_path === null) {
-                throw new \Exception('This namespace isn\'t register: ' . $class);
+                throw new NamespaceNotFoundException('This namespace isn\'t register: ' . $class);
             }
-            //class_exists($className)
 
             $file = str_replace('\\', DIRECTORY_SEPARATOR, $ns_path . '\\' . $class).'.php';
 
