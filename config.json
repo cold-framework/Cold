@@ -6,11 +6,11 @@
         }
     },
     "controllers": "App\\Controller\\",
+    "data": "var",
     "debug": true,
     "templates": "templates/",
     "routes": {
         "/": "HomepageController@index",
         "/booking": "BookingController@index"
-    },
-    "data": "var"
+    }
 }

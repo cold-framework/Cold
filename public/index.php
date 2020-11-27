@@ -8,6 +8,7 @@ use ColdBolt\Http\Response;
 use ColdBolt\Logger\Logger;
 use ColdBolt\Routing\Router;
 use ColdBolt\AbstractController;
+use ColdBolt\Template\Template;
 
 ColdBolt\Autoloader::register();
 
@@ -21,6 +22,14 @@ $response = new Response();
 
 $router = new Router($routes);
 $route = $router->match($request->getURI());
+
+if(null === $route) { // 404
+    $template = (new Template('_error/404'))->render();
+    $response->setHTTPCode(404);
+    $response->write($template);
+    $response->send();
+    exit();
+}
 
 list($class, $function) = explode('@', $route);
 $class = $configuration->getControllersNamespace() . $class;
