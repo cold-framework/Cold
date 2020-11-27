@@ -10,5 +10,6 @@
     "routes": {
         "/": "HomepageController@index",
         "/booking": "BookingController@index"
-    }
+    },
+    "data": "var/data/"
 }
