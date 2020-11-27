@@ -24,5 +24,5 @@ list($class, $function) = explode('@', $route);
 $class = $configuration->getControllersNamespace() . $class;
 
 /** @var AbstractController */
-$controller = new $class($request, $response);
+$controller = new $class($request, $response, $configuration);
 call_user_func_array(array($controller, $function), []);

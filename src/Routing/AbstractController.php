@@ -17,6 +17,7 @@ abstract class AbstractController {
     {
         $this->request = $request;
         $this->response = $response;
+        $this->configuration = $configuration;
     }
 
     public function render(string $template, ?array $params = null) {

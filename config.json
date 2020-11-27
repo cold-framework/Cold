@@ -5,7 +5,7 @@
             "ColdBolt\\": "src/"
         }
     },
-    "controllers": "App\\Controller",
+    "controllers": "App\\Controller\\",
     "templates": "templates/",
     "routes": {
         "/": "HomepageController@index",
