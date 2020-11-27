@@ -10,8 +10,8 @@ use ColdBolt\Routing\AbstractController;
 ColdBolt\Autoloader::register();
 
 $routes = [
-    '/' => 'App\Controller\HomepageController@index',
-    '/booking' => 'App\Controller\BookingController@index',
+    '/' => 'HomepageController@index',
+    '/booking' => 'BookingController@index',
 ];
 
 $request = Request::createFromGlobals();
@@ -21,6 +21,7 @@ $router = new Router($routes);
 $route = $router->match($request->getURI());
 
 list($class, $function) = explode('@', $route);
+$class = 'App\\Controller' . $class;
 
 /** @var AbstractController */
 $controller = new $class($request, $response);
