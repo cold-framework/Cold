@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./tools/nginx/loire-a-velo.conf:/etc/nginx/site-enabled/loire-a-velo.conf
+      - .:./var/www/
+    ports:
+      - "8000:80"
+    links:
+      - php
+  php:
+    image: php:7.4
+    restart: on-failure
+    volumes:
+      - .:./var/www/
