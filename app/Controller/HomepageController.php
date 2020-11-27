@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use ColdBolt\Routing\AbstractController;
+use ColdBolt\AbstractController;
 
 class HomepageController extends AbstractController {
 

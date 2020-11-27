@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use ColdBolt\FileSystem\Writer;
-use ColdBolt\Routing\AbstractController;
+use ColdBolt\AbstractController;
 
 class BookingController extends AbstractController {
 
@@ -17,7 +17,7 @@ class BookingController extends AbstractController {
 
     public function handleBookingForm() {
 
-        $form_data_file = $this->configuration->getDataDir() . 'booking.txt';
+        $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'booking.txt';
 
         $date = date('d-m-Y H:i:s');
         $arrival = $this->request->getContent('arival');

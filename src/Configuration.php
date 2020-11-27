@@ -13,6 +13,10 @@ class Configuration {
         $this->config = json_decode(Reader::read(__DIR__ . '/../config.json'), true);
     }
 
+    public function isDebug(): bool {
+        return $this->config['debug'];
+    }
+
     public function getControllersNamespace(): string {
         return $this->config['controllers'];
     }
