@@ -50,7 +50,7 @@ Base minimal pour par rapport au cahier des charges :
 
 - Utilisation du JavaScript pour gérer les évènements du formulaire
 - Récuperation des données dans un fichier texte au niveau du serveur
-- Redirection sur une page avec le récapitulatif des données envoyer
+- ~~Redirection sur une page avec le récapitulatif des données envoyer~~
 
 Pour aller plus loin :
 
