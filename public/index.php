@@ -5,21 +5,23 @@ require_once __DIR__ . '/../src/Autoload/Autoloader.php';
 use ColdBolt\Http\Request;
 use ColdBolt\Http\Response;
 use ColdBolt\Routing\Router;
-use ColdBolt\Template\Template;
+use ColdBolt\Routing\AbstractController;
 
 ColdBolt\Autoloader::register();
 
 $routes = [
-    '/' => 'index',
-    '/booking' => 'booking',
+    '/' => 'App\Controller\HomepageController@index',
+    '/booking' => 'App\Controller\BookingController@index',
 ];
 
 $request = Request::createFromGlobals();
-
 $response = new Response();
+
 $router = new Router($routes);
 $route = $router->match($request->getURI());
 
-$template = (new Template($route))->render();
-$response->write($template);
-$response->send();
+list($class, $function) = explode('@', $route);
+
+/** @var AbstractController */
+$controller = new $class($request, $response);
+call_user_func_array(array($controller, $function), []);
