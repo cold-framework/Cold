@@ -13,7 +13,7 @@ class Template
         $this->path = __DIR__ . '/../../' .$path;
     }
 
-    public function render(?array $params): string
+    public function render(?array $params = null): string
     {
         if (null !== $params) {
             extract($params);
