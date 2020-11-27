@@ -74,17 +74,7 @@ Pour aller plus loin :
 
 - ~~Gestion du responsive~~
 - ~~Utilisation d'un TailwindLike (maison)~~
-
-- Utilisation de Vite.JS pour les assets dans l'env de dev
-- Utilisation de Rollup pour les assets dans l'env de prod
-- Gestion des éléments du formulaire avec Preact
-- Utilisation de Turbolink
-- Utilisaiton d'un makefile pour simplifier toutes les commandes
-- Backend avec Symfony
-- Mise en place d'un petit backoffice avec un systeme de notification (ws sur le site + mail) pour l'admin
-- Mise en place de GitHub Action pour le CI
-- Utilisation de linter twig/php/css/js
-- Ecriture de deux trois tests unitaire
+- ~~Creation d'un micro-framework MVC maison (oui j'abuse)~~
 - Dockerisation du projet
-
-- Deployement du projet (si j'ai le temps + l'envie : ansible)
+- Deployement du projet
+- Utilisation d'ansible pour deploy
