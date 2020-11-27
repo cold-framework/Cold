@@ -15,7 +15,7 @@ class Autoloader
 {
     public static function get_config()
     {
-        return json_decode(file_get_contents(__DIR__ . '/../config.json'), true)['autoload'];
+        return json_decode(file_get_contents(__DIR__ . '/../../config.json'), true)['autoload'];
     }
 
     public static function register()
@@ -38,7 +38,7 @@ class Autoloader
 
             $file = str_replace('\\', DIRECTORY_SEPARATOR, $ns_path . '\\' . $class).'.php';
 
-            require_once __DIR__ . '/../' . $file;
+            require_once __DIR__ . '/../../' . $file;
         });
     }
 }

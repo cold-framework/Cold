@@ -1,13 +1,22 @@
 <?php
 
-use ColdBolt\Http\Request;
-use ColdBolt\Template;
+require_once __DIR__ . '/../src/Autoload/Autoloader.php';
 
-require_once __DIR__ . '/../src/autoload.php';
+use ColdBolt\Http\Request;
+use ColdBolt\Http\Response;
+use ColdBolt\Routing\Router;
 
 ColdBolt\Autoloader::register();
 
-// $request = Request::createFromGlobals();
-//
-// var_dump($request->getURI());
-(new Template('index'))->render();
+$routes = [
+    '/thread/{id}/{path}/' => 'forum',
+    '/' => 'index',
+    '/booking' => 'booking',
+];
+
+$request = Request::createFromGlobals();
+
+$response = new Response();
+$router = new Router($routes);
+
+var_dump($router->match($request->getURI()));

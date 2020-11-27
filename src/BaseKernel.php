@@ -2,6 +2,6 @@
 
 namespace ColdBolt;
 
-class Writer
+abstract class BaseKernel
 {
 }
