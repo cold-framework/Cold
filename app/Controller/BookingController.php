@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Models\Form\BookingForm;
 use ColdBolt\FileSystem\Writer;
 use ColdBolt\AbstractController;
 
@@ -18,18 +19,20 @@ class BookingController extends AbstractController {
     public function handleBookingForm() {
 
         $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'booking.txt';
+        $form = new BookingForm($this->request->getContents());
 
         $date = date('d-m-Y H:i:s');
-        $arrival = $this->request->getContent('arival');
-        $departure = $this->request->getContent('departure');
-        $adult = $this->request->getContent('adult');
-        $child = $this->request->getContent('child');
-        $name = $this->request->getContent('name');
-        $surname = $this->request->getContent('surname');
-        $email = $this->request->getContent('email');
-        $phone = $this->request->getContent('phone');
-        $city = $this->request->getContent('city');
-        $postal_code = $this->request->getContent('postal_code');
+
+        $arrival = $form->getArrivalDate();
+        $departure = $form->getDepartureDate();
+        $adult = $form->getAdult();
+        $child = $form->getChild();
+        $name = $form->getName();
+        $surname =$form->getSurname();
+        $email = $form->getEmail();
+        $phone = $form->getPhone();
+        $city = $form->getCity();
+        $postal_code = $form->getPostalCode();
 
         $content = <<<FORMDATA
 --------------------
