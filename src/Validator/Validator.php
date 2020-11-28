@@ -31,7 +31,7 @@ abstract class Validator
                 $isValidated = $constraint->validate();
 
                 $isValidated ?: $this->errors[$field] = $constraint->getErrors();
-                $isValidated ?: $skippingValidation = $constraint->skipAllNextValidation();
+                $skippingValidation = $constraint->skipAllNextValidation();
             }
         }
 

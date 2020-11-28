@@ -2,15 +2,14 @@
 
 namespace ColdBolt\Validator\Constraint;
 
-class NotBlank extends Constraint
-{
+class Optional extends Constraint{
     public function validate(): bool
     {
-        return !empty($this->data);
+        return true;
     }
 
     public function skipAllNextValidation(): bool
     {
-        return empty($this->data);
+        return true;
     }
 }

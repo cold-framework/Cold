@@ -29,7 +29,9 @@ class BookingController extends AbstractController {
         $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'booking.txt';
         $form = new BookingForm($this->request->getContents());
 
-        var_dump($form->validate());
+        if(!$form->validate()) {
+            exit;
+        }
 
         $date = date('d-m-Y H:i:s');
 
