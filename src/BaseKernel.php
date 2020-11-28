@@ -1,12 +1,14 @@
 <?php
 
 namespace ColdBolt;
+
 use ColdBolt\Configuration;
 use ColdBolt\Http\Request;
 use ColdBolt\Http\Response;
 use ColdBolt\Logger\Logger;
 use ColdBolt\AbstractController;
 use ColdBolt\Routing\RouteHandler;
+
 abstract class BaseKernel
 {
     public static function init() {
