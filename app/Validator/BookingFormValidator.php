@@ -4,6 +4,7 @@ namespace App\Validator;
 
 use ColdBolt\Validator\Validator;
 use ColdBolt\Validator\Constraint\Date;
+use ColdBolt\Validator\Constraint\Number;
 use ColdBolt\Validator\Constraint\NotBlank;
 
 class BookingFormValidator extends Validator
@@ -12,8 +13,8 @@ class BookingFormValidator extends Validator
     {
         return [
             'arrival' => [NotBlank::class, Date::class],
-            // 'departure' => [Constraint\NotBlank::class, Constraint\Date::class],
-            // 'adult' => [Constraint\NotBlank::class, Constraint\Number::class, Constraint\Number\Minimal_1::class, Constraint\Number\Maximal_10::class],
+            'departure' => [NotBlank::class, Date::class],
+            'adult' => [NotBlank::class, Number::class],
             // 'child' => [Constraint\Optional::class, Constraint\Number::class],
             // 'name' => [Constraint\NotBlank::class, Constraint\Str::class, Constraint\Str\MaxSize_50::class],
             // 'surname' => [Constraint\NotBlank::class, Constraint\Str::class, Constraint\Str\MaxSize_50::class],
