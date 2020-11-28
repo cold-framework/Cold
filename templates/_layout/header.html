@@ -12,5 +12,22 @@
 	</head>
 	<body>
 		<div class="mx-16 lg:grid lg:my-8">
-			<?php include __DIR__ . '/../_components/title.html' ?>
-			<?php include __DIR__ . '/../_components/navbar.html' ?>
+
+			<div class="flex justify-center lg:justify-start my-16 lg:my-32 lg:row-start-1 lg:col-start-2 lg:row-end-2 lg:col-end-5">
+				<h1 class="text-2xl lg:text-5xl text-light lg:align-start">Venez d&eacute;couvrir la Loire au fil de l&rsquo;eau</h1>
+			</div>
+
+			<nav class="flex col justify-center lg:row-start-1 lg:col-start-1 lg:row-end-6 lg:col-end-2 lg:row lg:mt-72 lg:mr-32">
+				<ul class="flex justify-around mt-8 lg:w-fit lg:col lg:self-start lg:mr-64">
+					<li>
+						<a href="/" class="text-black no-underline text-xl">Accueil</a>
+					</li>
+					<li>
+						<a href="/booking" class="text-black text-bold no-underline text-xl">Reserver</a>
+					</li>
+					<li>
+						<a href="/about" class="text-black no-underline text-xl">Contact</a>
+					</li>
+				</ul>
+				<hr class="w-3/4 my-8 flex self-center border-0 border-t-1 lg:border-0 lg:border-l-1 border-gray-600 lg:h-4.5 lg:w-0 lg:mt-16 lg:self-start">
+			</nav>
