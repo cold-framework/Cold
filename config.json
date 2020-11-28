@@ -11,6 +11,7 @@
     "templates": "templates/",
     "routes": {
         "/": "HomepageController@index",
-        "/booking": "BookingController@index"
+        "/booking": "BookingController@index",
+        "/booking/sucess": "BookingController@sucess"
     }
 }

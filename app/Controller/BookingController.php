@@ -18,6 +18,12 @@ class BookingController extends AbstractController {
         ]);
     }
 
+    public function sucess() {
+        $this->render('sucess_booking', [
+            'title' => 'Réservation | La Loire à vélo'
+        ]);
+    }
+
     public function handleBookingForm() {
 
         $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'booking.txt';

@@ -382,18 +382,6 @@
     font-size: 3.75rem;
     line-height: 1;
   }
-  .lg\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-  .lg\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-  .lg\:text-9xl {
-    font-size: 8rem;
-    line-height: 1;
-  }
 }
 
 .text-extralight {

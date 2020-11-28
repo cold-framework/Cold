@@ -58,7 +58,7 @@ Pour aller plus loin :
 - ~~Utilisation d'un TailwindLike (maison)~~
 - ~~Creation d'un micro-framework MVC maison (oui j'abuse)~~
 - ~~Dockerisation du projet~~
-- Deployement du projet
+- ~~Deployement du projet~~
 - Utilisation d'ansible pour deploy
 
 ## Note au professeur
