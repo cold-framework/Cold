@@ -13,7 +13,9 @@ class BookingController extends AbstractController {
             $this->handleBookingForm();
         }
 
-        $this->render('booking');
+        $this->render('booking', [
+            'title' => 'Réservation | La Loire à vélo'
+        ]);
     }
 
     public function handleBookingForm() {
