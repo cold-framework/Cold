@@ -3,14 +3,14 @@ services:
   nginx:
     image: nginx
     volumes:
-      - ./tools/nginx/loire-a-velo.conf:/etc/nginx/site-enabled/loire-a-velo.conf
-      - .:./var/www/
+      - ./tools/nginx/:/etc/nginx/conf.d/
+      - .:/var/www/
     ports:
       - "8000:80"
     links:
       - php
   php:
-    image: php:7.4
+    image: php:7.4-fpm-alpine
     restart: on-failure
     volumes:
-      - .:./var/www/
+      - .:/var/www/

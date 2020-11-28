@@ -57,7 +57,7 @@ Pour aller plus loin :
 - ~~Gestion du responsive~~
 - ~~Utilisation d'un TailwindLike (maison)~~
 - ~~Creation d'un micro-framework MVC maison (oui j'abuse)~~
-- Dockerisation du projet
+- ~~Dockerisation du projet~~
 - Deployement du projet
 - Utilisation d'ansible pour deploy
 
