@@ -9,7 +9,7 @@ use ColdBolt\AbstractController;
 class BookingController extends AbstractController {
 
     public function index() {
-        if($this->request->hasContent('arival')) {
+        if($this->request->hasContent('arrival')) {
             $this->handleBookingForm();
         }
 
@@ -28,6 +28,8 @@ class BookingController extends AbstractController {
 
         $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'booking.txt';
         $form = new BookingForm($this->request->getContents());
+
+        var_dump($form->validate());
 
         $date = date('d-m-Y H:i:s');
 

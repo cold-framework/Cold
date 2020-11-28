@@ -2,8 +2,8 @@ let sections = [
   {
     $icon: document.getElementById("icon-date"),
     child: {
-      arival: {
-        $el: document.getElementById("arival"),
+      arrival: {
+        $el: document.getElementById("arrival"),
         state: {
           focusable: true,
           valid: false,
@@ -107,7 +107,7 @@ let info_icon = `
 document.getElementById("icon-info").innerHTML = info_icon;
 
 let date = new Date();
-sections[0].child.arival.$el.value = date.toISOString().split("T")[0];
+sections[0].child.arrival.$el.value = date.toISOString().split("T")[0];
 date.setDate(date.getDate() + 2);
 sections[0].child.departure.$el.value = date.toISOString().split("T")[0];
 

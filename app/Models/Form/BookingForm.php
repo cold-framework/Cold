@@ -2,7 +2,10 @@
 
 namespace App\Models\Form;
 
-class BookingForm {
+use App\Validator\BookingFormValidator;
+use ColdBolt\Validator\ValidableModel;
+
+class BookingForm implements ValidableModel {
     private string $arrival;
     private string $departure;
     private string $adult;
@@ -17,7 +20,7 @@ class BookingForm {
 
     public function __construct(array $data)
     {
-        $this->arrival = $data['arival'];
+        $this->arrival = $data['arrival'];
         $this->departure = $data['departure'];
         $this->adult = $data['adult'];
         $this->child = $data['child'];
@@ -27,6 +30,11 @@ class BookingForm {
         $this->phone = $data['phone'];
         $this->city = $data['city'];
         $this->postal_code = $data['postal_code'];
+    }
+
+    public function validate(): bool
+    {
+        return (new BookingFormValidator(get_object_vars($this)))->validate();
     }
 
 
