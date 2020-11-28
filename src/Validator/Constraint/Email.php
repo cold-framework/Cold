@@ -7,7 +7,7 @@ class Email extends Constraint
     public function validate(): bool
     {
         if (!filter_var($this->data, FILTER_VALIDATE_EMAIL)) {
-            $this->addError('This email is invalid');
+            $this->addError('Invalid Email');
         }
 
         return empty($this->getErrors());

@@ -16,6 +16,7 @@ class BookingForm implements ValidableModel {
     private string $phone;
     private string $city;
     private string $postal_code;
+    private BookingFormValidator $validator;
 
 
     public function __construct(array $data)
@@ -30,11 +31,18 @@ class BookingForm implements ValidableModel {
         $this->phone = $data['phone'];
         $this->city = $data['city'];
         $this->postal_code = $data['postal_code'];
+
+        $this->validator = new BookingFormValidator(get_object_vars($this));
     }
 
     public function validate(): bool
     {
-        return (new BookingFormValidator(get_object_vars($this)))->validate();
+        return $this->validator->validate();
+    }
+
+    public function getErrors(): array
+    {
+        return $this->validator->getErrors();
     }
 
 

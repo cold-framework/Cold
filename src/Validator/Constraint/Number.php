@@ -6,6 +6,10 @@ class Number extends Constraint
 {
     public function validate(): bool
     {
-        return is_numeric($this->data);
+        if (!is_numeric($this->data)) {
+            $this->addError('Invalid Number');
+        }
+
+        return empty($this->getErrors());
     }
 }

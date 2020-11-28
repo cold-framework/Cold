@@ -6,6 +6,10 @@ class Required extends Constraint
 {
     public function validate(): bool
     {
-        return !empty($this->data);
+        if (empty($this->data)) {
+            $this->addError('Required field');
+        }
+
+        return empty($this->getErrors());
     }
 }

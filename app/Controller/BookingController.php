@@ -30,6 +30,7 @@ class BookingController extends AbstractController {
         $form = new BookingForm($this->request->getContents());
 
         if(!$form->validate()) {
+            var_dump($form->getErrors());
             exit;
         }
 
