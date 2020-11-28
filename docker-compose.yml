@@ -1,9 +1,9 @@
 version: "3.4"
 services:
   nginx:
-    image: nginx
+    image: nginx:1.19.5
     volumes:
-      - ./tools/nginx/:/etc/nginx/conf.d/
+      - ./tools/docker/nginx:/etc/nginx/conf.d/
       - .:/var/www/
     ports:
       - "8000:80"
