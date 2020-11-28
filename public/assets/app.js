@@ -106,6 +106,11 @@ let info_icon = `
 
 document.getElementById("icon-info").innerHTML = info_icon;
 
+let date = new Date();
+sections[0].child.arival.$el.value = date.toISOString().split("T")[0];
+date.setDate(date.getDate() + 2);
+sections[0].child.departure.$el.value = date.toISOString().split("T")[0];
+
 sections.forEach((section) => {
   Object.keys(section.child).forEach((key) => {
     section.$icon.innerHTML = isSectionValid(section)
@@ -132,6 +137,8 @@ function isSectionValid(section) {
   Object.keys(section.child).forEach(($input) => {
     if (!section.child[$input].$el.checkValidity()) {
       section_is_valid = false;
+    } else {
+      section.child[$input].state.valid = true;
     }
   });
 
