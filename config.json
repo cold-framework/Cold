@@ -6,12 +6,18 @@
         }
     },
     "controllers": "App\\Controller\\",
-    "data": "var",
+    "data": "var/",
     "debug": true,
     "templates": "templates/",
+    "translation": {
+        "path": "translation",
+        "default_language": "fr_FR"
+    },
     "routes": {
         "/": "HomepageController@index",
+        "/contact": "HomepageController@contact",
         "/booking": "BookingController@index",
-        "/booking/sucess": "BookingController@sucess"
+        "/booking/sucess": "BookingController@sucess",
+        "/booking/error": "BookingController@error"
     }
 }

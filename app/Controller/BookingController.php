@@ -11,6 +11,8 @@ class BookingController extends AbstractController {
     public function index() {
         if($this->request->hasContent('arrival')) {
             $this->handleBookingForm();
+
+            $this->error();
         }
 
         $this->render('booking', [
@@ -20,13 +22,19 @@ class BookingController extends AbstractController {
 
     public function sucess() {
         $this->render('sucess_booking', [
-            'title' => 'Réservation | La Loire à vélo'
+            'title' => 'Confirmation de la réservation | La Loire à vélo'
+        ]);
+    }
+
+    public function error() {
+        $this->render('error_booking', [
+            'title' => 'Echeque de la réservation | La Loire à vélo'
         ]);
     }
 
     public function handleBookingForm() {
 
-        $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'booking.txt';
+        $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . 'booking.txt';
         $form = new BookingForm($this->request->getContents());
 
         if(!$form->validate()) {
