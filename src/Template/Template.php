@@ -16,10 +16,6 @@ class Template
     public function render(?array $params = null): string
     {
         if (null !== $params) {
-            foreach ($params as $index => $param) {
-                $params[$index] = htmlspecialchars($param);
-            }
-
             extract($params);
         }
 

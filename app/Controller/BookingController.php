@@ -5,30 +5,22 @@ namespace App\Controller;
 use App\Models\Form\BookingForm;
 use ColdBolt\FileSystem\Writer;
 use ColdBolt\AbstractController;
+use ColdBolt\Template\Flashbag;
 
 class BookingController extends AbstractController {
 
+    private Flashbag $flashbag;
+
     public function index() {
+        $this->flashbag = new Flashbag;
+
         if($this->request->hasContent('arrival')) {
             $this->handleBookingForm();
-
-            $this->error();
         }
 
         $this->render('booking', [
-            'title' => 'Réservation | La Loire à vélo'
-        ]);
-    }
-
-    public function sucess() {
-        $this->render('sucess_booking', [
-            'title' => 'Confirmation de la réservation | La Loire à vélo'
-        ]);
-    }
-
-    public function error() {
-        $this->render('error_booking', [
-            'title' => 'Echeque de la réservation | La Loire à vélo'
+            'title' => 'Réservation | La Loire à vélo',
+            'flashbag' => $this->flashbag
         ]);
     }
 
@@ -37,10 +29,12 @@ class BookingController extends AbstractController {
         $form_data_file = $this->configuration->getDataDir() . DIRECTORY_SEPARATOR . 'data' . 'booking.txt';
         $form = new BookingForm($this->request->getContents());
 
-        if(!$form->validate()) {
-            var_dump($form->getErrors());
-            exit;
+        $form->validate();
+
+        foreach($form->getErrors() as $error) {
+            $this->flashbag->addFlash($error);
         }
+
 
         $date = date('d-m-Y H:i:s');
 

@@ -1,5 +1,7 @@
 # La loire à velo
 
+> ⚠ Because of Container need reflection, atm it's not compatible with PHP 8, a fix in reflexion.
+
 ## Presentation du projet
 
 _C'est un projet de cours réaliser durant mon premier trimestre de premiere spécialité NSI_

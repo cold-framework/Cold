@@ -10,6 +10,11 @@ class Response
     private ?array $headers = null;
     private string $body;
 
+    public function __construct()
+    {
+        //Empty Constructor
+    }
+
     public function setHTTPCode(int $code)
     {
         $this->HTTPCode = $code;

@@ -4,29 +4,26 @@ namespace ColdBolt;
 
 use ColdBolt\Configuration;
 use ColdBolt\Http\Request;
-use ColdBolt\Http\Response;
-use ColdBolt\Logger\Logger;
 use ColdBolt\AbstractController;
+use ColdBolt\Autoload\Container;
 use ColdBolt\Routing\RouteHandler;
 
 abstract class BaseKernel
 {
     public static function init() {
-        $configuration = new Configuration();
-        $logger = new Logger('app.txt', $configuration->getDataDir() . '/logs/', $configuration->isDebug());
+        $container = new Container();
+        $configuration = $container->get(Configuration::class);
+        $container->set(Request::class, function() {return Request::createFromGlobals();});
 
         $routes = $configuration->getRoutes();
-
-        $request = Request::createFromGlobals();
-        $response = new Response();
-
+        $request = $container->get(Request::class);
         $route = RouteHandler::handle($routes, $request);
 
         list($class, $function) = explode('@', $route);
         $class = $configuration->getControllersNamespace() . $class;
-
+        
         /** @var AbstractController */
-        $controller = new $class($request, $response, $configuration, $logger);
+        $controller = $container->get($class);
         call_user_func_array(array($controller, $function), []);
     }
 }

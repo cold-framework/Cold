@@ -2,6 +2,7 @@
 
 namespace ColdBolt\Logger;
 
+use ColdBolt\Configuration;
 use ColdBolt\FileSystem\Writer;
 
 class Logger {
@@ -17,10 +18,10 @@ class Logger {
     const ERROR = 'ERROR';
     const FATAL = 'FATAL';
 
-    public function __construct(string $filename, string $folder, bool $debug = false)
+    public function __construct(Configuration $configuration, string $filename = "app.txt")
     {
-        $this->file = $folder . $filename;
-        $this->debug = $debug;
+        $this->file = $configuration->getDataDir() . 'logs' . DIRECTORY_SEPARATOR . $filename;
+        $this->debug = $configuration->isDebug();
     }
 
     private function write(string $prefix, string $message) {
