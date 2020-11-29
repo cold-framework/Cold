@@ -19,7 +19,9 @@ class RouteHandler {
     }
 
     public static function notFound() {
-        $template = (new Template('_error/404'))->render();
+        $template = (new Template())
+            ->setTemplate('_http_error_code/404')
+            ->render();
         $response = new Response();
         $response->setHTTPCode(404);
         $response->write($template);
