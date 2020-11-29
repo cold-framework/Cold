@@ -2,7 +2,7 @@
 <main class="flex col lg:row-start-2 lg:col-start-2 lg:row-end-6 lg:col-end-5 lg:mt-16">
 
 	<?php
-		if(isset($flashbag)) {
+		if(!empty($flashbag)) {
 			echo $flashbag;
 			echo '<hr class="w-3/4 my-16">';
 		}
