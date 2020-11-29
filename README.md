@@ -102,3 +102,11 @@ Au niveau du CSS j'ai opté pour une approche de CSS avec des class utilitaire p
   ...;
 }
 ```
+
+## Deployer le projet
+
+Le projet est facilement deployable avec ansible et ansistrano. Pour cela il vous faudrait executer deux commandes afin d'installer les dépendances:
+
+- `ansible-galaxy install ansistrano.deploy ansistrano.rollback`
+
+Ensuite il vous faudra simplement importer votre clé et modifier le fichier `tools/ansible/hosts` . Ensuite vous pouvez lancer la configuration du serveur avec `ansible-playbook -i tools/ansible/hosts tools/ansible/install.yml` et lancer le deploiement `ansible-playbook -i tools/ansible/hosts tools/ansible/deploy.yml`

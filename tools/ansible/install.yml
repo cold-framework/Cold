@@ -1,0 +1,77 @@
+---
+- name: Installation du serveur
+  hosts: all
+  remote_user: root
+  tasks:
+    - include_vars:
+        file: vars.yml
+    - name: "USER | Création de {{ user }}"
+      user:
+        name: "{{ user }}"
+        shell: /bin/bash
+    - name: USER | Clef SSH
+      authorized_key:
+        user: "{{ user }}"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    - name: APT | Update & Upgrade
+      apt:
+        upgrade: dist
+        update_cache: yes
+    - name: APT | Install Git
+      apt:
+        name: git
+        state: present
+    - name: APT | Firewall
+      apt:
+        name: ufw
+        state: present
+    - name: Firewall | Policy
+      ufw:
+        direction: "{{ item.direction }}"
+        policy: "{{ item.policy }}"
+      with_items:
+        - { direction: incoming, policy: deny }
+        - { direction: outgoing, policy: allow }
+    - name: Firewall | Allow SSH
+      ufw:
+        rule: limit
+        port: ssh
+    - name: Firewall | Allow outgoing HTTP(S) trafic
+      ufw:
+        rule: allow
+        port: "{{ item }}"
+      with_items:
+        - http
+        - https
+    - name: Firewall | Enabling
+      ufw:
+        state: enabled
+    - name: APT | Add ondrej/php repo
+      apt_repository:
+        repo: ppa:ondrej/php
+    - name: APT | PHP Install
+      apt:
+        update_cache: yes
+        name:
+          - php7.4-fpm
+          - php7.4-mbstring
+          - php7.4-xml
+        state: present
+    - name: APT | Nginx Install
+      apt:
+        name:
+          - nginx
+        state: present
+    - name: Nginx | Default vhost
+      template:
+        src: nginx/default.j2
+        dest: "/etc/nginx/sites-available/default"
+    - name: Nginx | {{ domain }} vhost
+      template:
+        src: nginx/vhost.j2
+        dest: "/etc/nginx/sites-enabled/{{ domain }}"
+    - name: Nginx | reload
+      service:
+        name: nginx
+        state: reloaded

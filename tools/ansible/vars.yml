@@ -1,0 +1,7 @@
+domain: td.nsi.superkooka.local
+#ansistrano_get_url: https://github.com/Superkooka/loire-a-velo/archive/stable.tar.gz
+ansistrano_deploy_from: "{{ playbook_dir }}/../../"
+ansistrano_deploy_to: "/home/{{ user }}/{{ domain }}"
+ansistrano_deploy_via: copy
+ansistrano_keep_releases: 5
+ansistrano_shared_paths: ["var"]
