@@ -25,6 +25,14 @@ class Configuration {
         return $this->config['templates'];
     }
 
+    public function getTranslationDir(): string {
+        return $this->config['translation']['dir'];
+    }
+
+    public function getDefaultLang(): string {
+        return $this->config['translation']['default_language'];
+    }
+
     public function getRoutes(): array {
         return $this->config['routes'];
     }

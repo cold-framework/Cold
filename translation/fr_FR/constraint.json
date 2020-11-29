@@ -1,3 +1,6 @@
 {
-    "This date is not valid": "Cette date est invalide"
+    "This date is not valid": "Cette date est invalide",
+    "Invalid Email": "Cet email est invalide",
+    "Invalid Number": "Ce nombre est invalide",
+    "Required field": "Ce champ est requis"
 }

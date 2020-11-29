@@ -3,24 +3,20 @@
 namespace App\Controller;
 
 use App\Models\Form\BookingForm;
+
 use ColdBolt\FileSystem\Writer;
 use ColdBolt\AbstractController;
-use ColdBolt\Template\Flashbag;
 
 class BookingController extends AbstractController {
 
-    private Flashbag $flashbag;
-
     public function index() {
-        $this->flashbag = new Flashbag;
-
         if($this->request->hasContent('arrival')) {
             $this->handleBookingForm();
         }
 
         $this->render('booking', [
             'title' => 'Réservation | La Loire à vélo',
-            'flashbag' => $this->flashbag
+            'flashbag' => $this->flashbag->formatError()
         ]);
     }
 
@@ -32,7 +28,7 @@ class BookingController extends AbstractController {
         $form->validate();
 
         foreach($form->getErrors() as $error) {
-            $this->flashbag->addFlash($error);
+            $this->flashbag->addError($error);
         }
 
 

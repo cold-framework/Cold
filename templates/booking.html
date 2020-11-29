@@ -1,7 +1,12 @@
 <?php include '_layout/header.html' ?>
 <main class="flex col lg:row-start-2 lg:col-start-2 lg:row-end-6 lg:col-end-5 lg:mt-16">
 
-	<?= $flashbag->format(); ?>
+	<?php
+		if(isset($flashbag)) {
+			echo $flashbag;
+			echo '<hr class="w-3/4 my-16">';
+		}
+	?>
 
 	<form action="" method="POST">
 		<section>

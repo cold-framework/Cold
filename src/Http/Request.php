@@ -84,7 +84,7 @@ class Request
 
     public function getQuery(string $query): string
     {
-        if (!$this->hasContent($query)) {
+        if (!$this->hasQuery($query)) {
             throw new QueryNotFoundException(sprintf("This query parameter can't be found: %s", $query));
         }
 

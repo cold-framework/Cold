@@ -10,7 +10,7 @@
     "debug": true,
     "templates": "templates/",
     "translation": {
-        "path": "translation",
+        "dir": "translation",
         "default_language": "fr_FR"
     },
     "routes": {

@@ -16,7 +16,7 @@ class Container {
 
     public function setInstance($instance): self {
         $key = (new \ReflectionClass($instance))->getName();
-        $this->registery[$key] = $instance;
+        $this->instances[$key] = $instance;
         return $this;
     }
 
@@ -35,24 +35,29 @@ class Container {
                 $this->instances[$key] = $this->registery[$key]();
             } else {
                 $reflection = new ReflectionClass($key);
-                $constructor = $reflection->getConstructor();
-                $parameters = $constructor->getParameters();
-                $constructor_parameters = [];
-
-                foreach($parameters as $parameter) {
-                    if($parameter->getClass() && !$parameter->getType()->isBuiltin()) {
-                        $constructor_parameters[] = $this->get($parameter->getClass()->getName());
-                    } else {
-                        $constructor_parameters[] = $parameter->getDefaultValue();
-                    }
-                }
-
+                $parameters = $this->getConstructorParameters($reflection);
                 if($reflection->isInstantiable()) {
-                    $this->instances[$key] = $reflection->newInstanceArgs($constructor_parameters);
+                    $this->instances[$key] = $reflection->newInstanceArgs($parameters);
                 }
             }
         }
 
         return $this->instances[$key];
+    }
+
+    public function getConstructorParameters(ReflectionClass $reflection): array {
+        $constructor = $reflection->getConstructor();
+        $parameters = $constructor->getParameters();
+        $constructor_parameters = [];
+
+        foreach($parameters as $parameter) {
+            if($parameter->getClass() && !$parameter->getType()->isBuiltin()) {
+                $constructor_parameters[] = $this->get($parameter->getClass()->getName());
+            } else {
+                $constructor_parameters[] = $parameter->getDefaultValue();
+            }
+        }
+
+        return $constructor_parameters;
     }
 }
