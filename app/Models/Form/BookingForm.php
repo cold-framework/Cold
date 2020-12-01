@@ -2,10 +2,15 @@
 
 namespace App\Models\Form;
 
-use App\Validator\BookingFormValidator;
+use ColdBolt\Validator\Validator;
 use ColdBolt\Validator\FormInterface;
+use ColdBolt\Validator\Constraint\Date;
+use ColdBolt\Validator\Constraint\Email;
+use ColdBolt\Validator\Constraint\Number;
+use ColdBolt\Validator\Constraint\Optional;
+use ColdBolt\Validator\Constraint\Required;
 
-class BookingForm implements FormInterface {
+class BookingForm extends Validator implements FormInterface {
     private string $arrival;
     private string $departure;
     private string $adult;
@@ -16,8 +21,6 @@ class BookingForm implements FormInterface {
     private string $phone;
     private string $city;
     private string $postal_code;
-    private BookingFormValidator $validator;
-
 
     public function __construct(array $data)
     {
@@ -32,79 +35,30 @@ class BookingForm implements FormInterface {
         $this->city = $data['city'];
         $this->postal_code = $data['postal_code'];
 
-        $this->validator = new BookingFormValidator(get_object_vars($this));
         $this->validate();
     }
-
-    public function validate(): bool
-    {
-        return $this->validator->validate();
-    }
-
-    public function getErrors(): array
-    {
-        return $this->validator->getErrors();
-    }
-
-
-    public function getArrivalDate(): string
-    {
-        return $this->arrival;
-    }
-
-
-    public function getDepartureDate(): string
-    {
-        return $this->departure;
-    }
-
-
-    public function getAdult(): string
-    {
-        return $this->adult;
-    }
-
-
-    public function getChild(): string
-    {
-        return $this->child;
-    }
-
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-
-    public function getSurname(): string
-    {
-        return $this->surname;
-    }
-
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-
-    public function getPhone(): string
-    {
-        return $this->phone;
-    }
-
-
-    public function getCity(): string
-    {
-        return $this->city;
-    }
-
-
-    public function getPostalCode(): string
-    {
-        return $this->postal_code;
-    }
-
     
+    public function getData(): array
+    {
+        $object_data = get_object_vars($this);
+        unset($object_data['data']);
+        unset($object_data['error']);
+        return $object_data;
+    }
+
+    public function getValidationFields(): array
+    {
+        return [
+            'arrival' => [Required::class, Date::class],
+            'departure' => [Required::class, Date::class],
+            'adult' => [Required::class, Number::class],
+            'child' => [Optional::class, Number::class],
+            'name' => [Required::class],
+            'surname' => [Required::class],
+            'email' => [Required::class, Email::class],
+            'phone' => [Required::class],
+            'city' => [Required::class],
+            'postal_code' => [Required::class, Number::class],
+        ];
+    }
 }

@@ -9,13 +9,10 @@ abstract class Validator
     private array $data;
     private array $errors = [];
 
-    public function __construct(array $data)
-    {
-        $this->data = $data;
-    }
-
     public function validate(): bool
     {
+        $this->data = $this->getData();
+
         $validationFields = $this->getValidationFields();
 
         foreach ($validationFields as $field => $validationField) {
@@ -47,5 +44,6 @@ abstract class Validator
         return $this->errors;
     }
 
+    abstract public function getData(): array;
     abstract protected function getValidationFields(): array;
 }
