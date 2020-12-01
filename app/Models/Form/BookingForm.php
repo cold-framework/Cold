@@ -21,6 +21,7 @@ class BookingForm extends Validator implements FormInterface {
     private string $phone;
     private string $city;
     private string $postal_code;
+    private string $informations;
 
     public function __construct(array $data)
     {
@@ -34,6 +35,7 @@ class BookingForm extends Validator implements FormInterface {
         $this->phone = $data['phone'];
         $this->city = $data['city'];
         $this->postal_code = $data['postal_code'];
+        $this->informations = $data['informations'];
 
         $this->validate();
     }
@@ -59,6 +61,7 @@ class BookingForm extends Validator implements FormInterface {
             'phone' => [Required::class],
             'city' => [Required::class],
             'postal_code' => [Required::class, Number::class],
+            'informations' => [Optional::class, Number::class]
         ];
     }
 }

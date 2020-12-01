@@ -50,9 +50,9 @@ La maquette est disponnible sur [Figma](https://www.figma.com/file/UqCC0zP1vEjY7
 
 Base minimal pour par rapport au cahier des charges :
 
-- Redirection sur une page avec le récapitulatif des données envoyer
 - ~~Utilisation du JavaScript pour gérer les évènements du formulaire~~
 - ~~Récuperation des données dans un fichier texte au niveau du serveur~~
+- ~~Redirection sur une page avec le récapitulatif des données envoyer~~
 
 Pour aller plus loin :
 

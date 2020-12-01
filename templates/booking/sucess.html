@@ -20,10 +20,12 @@
 		?
 	</p>
 
-	<h3 class="text-2xl text-regular my-16">Recapitulatif de votre réservation: </h3>
+	<h3 class="text-2xl text-regular my-16">Recapitulatif de votre réservation:
+	</h3>
 	<p>
-		Vous avez reservez pour	<?= $form['adult'] ?> adultes <?= !isset($children) ?: $children ?> du <?= $form['arrival'] ?> jusqu'au <?= $form['departure'] ?>.
+		Vous avez reservez pour <?= $form['adult'] ?> adultes <?= !isset($children) ?: $children ?> du <?= $form['arrival'] ?> jusqu'au <?= $form['departure'] ?>.
 	</p>
+
 	<p>
 		Votre réservation a été effectué au nom de <?= $form['surname'] . ' ' . $form['name'] ?> le <?= date('d/m/Y') ?>.
 	</p>
@@ -33,5 +35,16 @@
 	<p>
 		Vous habitez à <?= $form['city'] ?> (<?= $form['postal_code'] ?>).
 	</p>
+	<?php 
+	if(!empty($info = $form['informations'])) {
+		echo <<<INFO
+<p>
+	Vous avez ajouté comme commantaire: $info
+</p>
+INFO;
+	} 
+	?>
+
+
 </main>
 <?php include  __DIR__ . '/../_layout/footer.html' ?>
