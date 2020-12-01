@@ -50,18 +50,22 @@ La maquette est disponnible sur [Figma](https://www.figma.com/file/UqCC0zP1vEjY7
 
 Base minimal pour par rapport au cahier des charges :
 
+- Redirection sur une page avec le récapitulatif des données envoyer
 - ~~Utilisation du JavaScript pour gérer les évènements du formulaire~~
 - ~~Récuperation des données dans un fichier texte au niveau du serveur~~
-- Redirection sur une page avec le récapitulatif des données envoyer
 
 Pour aller plus loin :
 
+- Meilleur gestion des formulaires
+- Ecriture de la doc
+- Support de PHP 8 (service container)
+- Refracto certain nom (DDD)
 - ~~Gestion du responsive~~
 - ~~Utilisation d'un TailwindLike (maison)~~
 - ~~Creation d'un micro-framework MVC maison (oui j'abuse)~~
 - ~~Dockerisation du projet~~
 - ~~Deployement du projet~~
-- Utilisation d'ansible pour deploy
+- ~~Utilisation d'ansible pour deploy~~
 
 ## Note au professeur
 
