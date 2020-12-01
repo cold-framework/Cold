@@ -60,6 +60,7 @@ Pour aller plus loin :
 - Ecriture de la doc
 - Support de PHP 8 (service container)
 - Refracto certain nom (DDD)
+- Refléchir comment faire des tests (features + unit) **SANS** lib exterieur
 - ~~Gestion du responsive~~
 - ~~Utilisation d'un TailwindLike (maison)~~
 - ~~Creation d'un micro-framework MVC maison (oui j'abuse)~~
