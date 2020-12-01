@@ -1,1 +1,3 @@
 /var
+
+/tools/ansible/**/*.retry
