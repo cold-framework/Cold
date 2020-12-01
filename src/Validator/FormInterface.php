@@ -2,7 +2,7 @@
 
 namespace ColdBolt\Validator;
 
-interface ValidableModel {
+interface FormInterface {
     public function validate(): bool;
     public function getErrors(): array;
 }

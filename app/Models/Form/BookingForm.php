@@ -3,9 +3,9 @@
 namespace App\Models\Form;
 
 use App\Validator\BookingFormValidator;
-use ColdBolt\Validator\ValidableModel;
+use ColdBolt\Validator\FormInterface;
 
-class BookingForm implements ValidableModel {
+class BookingForm implements FormInterface {
     private string $arrival;
     private string $departure;
     private string $adult;
@@ -33,6 +33,7 @@ class BookingForm implements ValidableModel {
         $this->postal_code = $data['postal_code'];
 
         $this->validator = new BookingFormValidator(get_object_vars($this));
+        $this->validate();
     }
 
     public function validate(): bool
