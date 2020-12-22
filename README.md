@@ -61,6 +61,7 @@ Pour aller plus loin :
 - Support de PHP 8 (service container)
 - Refracto certain nom (DDD)
 - Refléchir comment faire des tests (features + unit) **SANS** lib exterieur
+- ~~Avoir des URLS dynamiques~~
 - ~~Gestion du responsive~~
 - ~~Utilisation d'un TailwindLike (maison)~~
 - ~~Creation d'un micro-framework MVC maison (oui j'abuse)~~
@@ -69,8 +70,6 @@ Pour aller plus loin :
 - ~~Utilisation d'ansible pour deploy~~
 
 ## Note au professeur
-
-> Ce qu'il y a à rendre pour chaque semaine sera sur une branche séparer (quand je le rendrai le projet sera correctement checkout). En plus de l'envoyer par Teams, le projet est disponnible sur [Github](https://github.com/Superkooka/loire-a-velo) en priver. Envoyez-moi votre username que je puisse vous y inviter si vous le voulez. La branch principal est ma branch perso, elle possde quelques features ainsi qu'outils en plus.
 
 J'ai volontairement (au risque de perdre des points) pas ajouter un dropdown pour le genre car je trouver cela trop restrictif pour l'utilisateur de choisir entre Homme et Femme et que ça n'a place ici. Pour vous montrer que je sais quand même le faire voici un exemple:
 
