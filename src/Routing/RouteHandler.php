@@ -6,19 +6,22 @@ use ColdBolt\Http\Request;
 use ColdBolt\Http\Response;
 use ColdBolt\Template\Template;
 
-class RouteHandler {
-    public static function handle(array $routes, Request $request): string {
+class RouteHandler
+{
+    public static function handle(array $routes, Request $request): Route
+    {
         $router = new Router($routes);
         $route = $router->match($request->getURI());
 
-        if(null === $route) { 
+        if (null === $route) {
             self::notFound();
         }
 
         return $route;
     }
 
-    public static function notFound() {
+    public static function notFound()
+    {
         $template = (new Template())
             ->setTemplate('_http_error_code/404')
             ->render();

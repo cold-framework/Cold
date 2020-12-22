@@ -11,7 +11,8 @@ use ColdBolt\Routing\RouteHandler;
 
 abstract class BaseKernel
 {
-    public static function init() {
+    public static function init()
+    {
         $container = new Container();
 
         /** @var Configuration */
@@ -25,8 +26,9 @@ abstract class BaseKernel
 
         $session = (new Session())->set('lang', ($request->hasQuery('lang') ? $request->getQuery('lang') : $configuration->getDefaultLang()));
         $container->setInstance($session);
+        $container->setInstance($route);
 
-        list($class, $function) = explode('@', $route);
+        list($class, $function) = explode('@', $route->getController());
         $class = $configuration->getControllersNamespace() . $class;
         
         /** @var AbstractController */

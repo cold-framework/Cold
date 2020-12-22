@@ -11,17 +11,24 @@ class Router
         $this->routes = $routes;
     }
 
-    public function match(string $path): ?string
+    public function match(string $uri): ?Route
     {
-        $path = $this->split_uri($path);
+        $path = $this->split_uri($uri);
 
-        foreach ($this->routes as $route_path => $route_name) {
+        foreach ($this->routes as $route_path => $controller) {
             $route_part = $this->split_uri($route_path);
+
+            $route = new Route($controller, $route_path);
 
             $isRouteFinded = true;
             $route_part_counted = 0;
             foreach ($route_part as $index => $part) {
-                if(0 === stripos($part, '{')) {
+                //monsite.fr/bonjour/kooka
+                // /bonjour/{pseudo}
+
+                if (0 === stripos($part, '{')) {
+                    $part = str_replace(['{', '}'], '', $part);
+                    $route->addDynPart($part, $path[$index]);
                     $route_part_counted++;
                     continue;
                 }
@@ -36,11 +43,12 @@ class Router
             }
 
             if ($isRouteFinded && $route_part_counted === count($path)) {
-                return $route_name;
+                return $route;
             }
         }
+
         return null;
-        }
+    }
 
     private function split_uri(string $uri): array
     {
@@ -48,7 +56,7 @@ class Router
         $uri_parts = [];
 
         foreach ($uri_parts_without_slash as $part) {
-            if(empty($part)) {
+            if (empty($part)) {
                 continue;
             }
             $uri_parts[] = '/';
