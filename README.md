@@ -60,6 +60,7 @@ Pour aller plus loin :
 - Ecriture de la doc
 - Support de PHP 8 (service container)
 - Refracto certain nom (DDD)
+- Refléchir à une gestion du cache
 - Refléchir comment faire des tests (features + unit) **SANS** lib exterieur
 - ~~Avoir des URLS dynamiques~~
 - ~~Gestion du responsive~~
