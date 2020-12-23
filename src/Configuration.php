@@ -4,8 +4,8 @@ namespace ColdBolt;
 
 use ColdBolt\FileSystem\Reader;
 
-class Configuration {
-
+class Configuration
+{
     private array $config;
 
     public function __construct()
@@ -13,31 +13,43 @@ class Configuration {
         $this->config = json_decode(Reader::read(__DIR__ . '/../config.json'), true);
     }
 
-    public function isDebug(): bool {
+    public function isDebug(): bool
+    {
         return $this->config['debug'];
     }
 
-    public function getControllersNamespace(): string {
+    public function getControllersNamespace(): string
+    {
         return $this->config['controllers'];
     }
 
-    public function getTemplatesDir(): string {
+    public function getTemplatesDir(): string
+    {
         return $this->config['templates'];
     }
 
-    public function getTranslationDir(): string {
+    public function getTranslationDir(): string
+    {
         return $this->config['translation']['dir'];
     }
 
-    public function getDefaultLang(): string {
+    public function getDefaultLang(): string
+    {
         return $this->config['translation']['default_language'];
     }
 
-    public function getRoutes(): array {
+    public function getTests(): array
+    {
+        return $this->config['tests'];
+    }
+
+    public function getRoutes(): array
+    {
         return $this->config['routes'];
     }
 
-    public function getDataDir(): string {
+    public function getDataDir(): string
+    {
         return __DIR__ . '/../' .$this->config['data'];
     }
 }

@@ -1,0 +1,23 @@
+<?php
+
+use ColdBolt\Autoload\Container;
+use ColdBolt\Autoloader;
+use ColdBolt\Configuration;
+
+require_once __DIR__ . '/../src/Autoload/Autoloader.php';
+Autoloader::register();
+$container = new Container;
+
+$config = $container->get(Configuration::class);
+
+$testClasses = $config->getTests();
+
+foreach ($testClasses as $testClass) {
+    $reflection = new ReflectionClass($testClass);
+    $test = new $testClass;
+    $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
+
+    foreach ($methods as $method) {
+        call_user_func([$test, $method->getName()]);
+    }
+}
