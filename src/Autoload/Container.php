@@ -29,7 +29,7 @@ class Container
         return $this;
     }
 
-    public function get(string $key)
+    public function get(string $key): Object
     {
         if (isset($this->factory[$key])) {
             return $this->factory[$key];
@@ -39,10 +39,9 @@ class Container
             if (isset($this->registery[$key])) {
                 $this->instances[$key] = $this->registery[$key]();
             } else {
-                $reflection = new ReflectionClass($key);
-                $parameters = $this->getConstructorParameters($reflection);
-                if ($reflection->isInstantiable()) {
-                    $this->instances[$key] = $reflection->newInstanceArgs($parameters);
+                $obj = $this->resolve($key);
+                if(!is_null($obj)) {
+                    $this->instances[$key] = $obj;
                 }
             }
         }
@@ -50,15 +49,32 @@ class Container
         return $this->instances[$key];
     }
 
-    public function getConstructorParameters(ReflectionClass $reflection): array
+    public function resolve(string $className): ?Object {
+
+        $reflection = new \ReflectionClass($className);
+        $parameters = $this->getConstructorParameters($reflection);
+        if ($reflection->isInstantiable()) {
+            return $reflection->newInstanceArgs($parameters);
+        }
+
+        return null;
+    }
+
+    private function getConstructorParameters(ReflectionClass $reflection): array
     {
         $constructor = $reflection->getConstructor();
+
+        if(is_null($constructor)) {
+            return [];
+        }
+
         $parameters = $constructor->getParameters();
         $constructor_parameters = [];
 
         foreach ($parameters as $parameter) {
-            if ($parameter->getClass() && !$parameter->getType()->isBuiltin()) {
-                $constructor_parameters[] = $this->get($parameter->getClass()->getName());
+            $paramClass =  $parameter->getType() && !$parameter->getType()->isBuiltin() ? new \ReflectionClass($parameter->getType()->getName()): null;
+            if ($paramClass && !$parameter->getType()->isBuiltin()) {
+                $constructor_parameters[] = $this->get($paramClass->getName());
             } else {
                 $constructor_parameters[] = $parameter->getDefaultValue();
             }
