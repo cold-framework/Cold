@@ -62,6 +62,7 @@ Pour aller plus loin :
 - Refracto certain nom (DDD)
 - Refléchir à une gestion du cache
 - Refléchir comment faire des tests (features + unit) **SANS** lib exterieur
+- Verifier si le terminal supporte les couleurs sous Windows
 - ~~Avoir des URLS dynamiques~~
 - ~~Gestion du responsive~~
 - ~~Utilisation d'un TailwindLike (maison)~~
