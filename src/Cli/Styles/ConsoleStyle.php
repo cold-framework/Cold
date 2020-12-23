@@ -11,21 +11,33 @@ class ConsoleStyle
 
     public function writeln(string $texte)
     {
-        fwrite(STDOUT, $texte . PHP_EOL);
+        $this->write($texte . PHP_EOL);
     }
 
     public function succes(string $texte)
     {
-        fwrite(STDOUT, BackgroundColorStyle::COLOR['green'] . $texte . ResetStyle::RESET . PHP_EOL);
+        if (Utils::support_color()) {
+            $this->writeln(BackgroundColorStyle::COLOR['green'] . $texte . ResetStyle::RESET);
+        } else {
+            $this->writeln($texte);
+        }
     }
 
     public function warning(string $texte)
     {
-        fwrite(STDOUT, BackgroundColorStyle::COLOR['yellow'] . $texte . ResetStyle::RESET . PHP_EOL);
+        if (Utils::support_color()) {
+            $this->writeln(BackgroundColorStyle::COLOR['yellow'] . $texte . ResetStyle::RESET);
+        } else {
+            $this->writeln($texte);
+        }
     }
 
     public function error(string $texte)
     {
-        fwrite(STDOUT, BackgroundColorStyle::COLOR['red'] . $texte . ResetStyle::RESET . PHP_EOL);
+        if (Utils::support_color()) {
+            $this->writeln(BackgroundColorStyle::COLOR['red'] . $texte . ResetStyle::RESET);
+        } else {
+            $this->writeln($texte);
+        }
     }
 }
