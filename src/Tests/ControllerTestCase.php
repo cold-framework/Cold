@@ -2,6 +2,6 @@
 
 namespace ColdBolt\Tests;
 
-class ControllerTestCase extends CommonTestCase
+abstract class ControllerTestCase extends CommonTestCase
 {
 }

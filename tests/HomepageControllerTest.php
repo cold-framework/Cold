@@ -9,8 +9,7 @@ class HomepageControllerTest extends ControllerTestCase
     #[Test(error_message: "Le test passe pas", can_be_fail: true)]
     public function should_have_http_code_200(): void
     {
-        
-
+        $code = 200;
 
         $this->assertSame(200, $code);
     }

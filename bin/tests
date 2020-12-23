@@ -1,23 +1,33 @@
 <?php
 
-use ColdBolt\Autoload\Container;
 use ColdBolt\Autoloader;
+use ColdBolt\Autoload\Container;
 use ColdBolt\Configuration;
+use ColdBolt\Cli\Styles\ConsoleStyle;
+use ColdBolt\Tests\TestFinder;
 
 require_once __DIR__ . '/../src/Autoload/Autoloader.php';
 Autoloader::register();
-$container = new Container;
 
+$container = new Container;
+$consoleStyle = new ConsoleStyle;
 $config = $container->get(Configuration::class);
 
-$testClasses = $config->getTests();
+/** @var $testFinder TestFinder */
+$testFinder = $container->resolve(TestFinder::class);
+$tests_classes = $testFinder->getTests();
 
-foreach ($testClasses as $testClass) {
-    $reflection = new ReflectionClass($testClass);
-    $test = new $testClass;
-    $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
+foreach ($tests_classes as $tests_class) {
+    $tests = $tests_class->getTests();
+    $class_name = $tests_class->getName();
 
-    foreach ($methods as $method) {
-        call_user_func([$test, $method->getName()]);
+    $ctx = $container->resolve($class_name);
+
+    foreach ($tests as $test) {
+        $test->run($ctx);
+
+        if($test->hasError()) {
+            throw $test->getError();
+        }
     }
 }
