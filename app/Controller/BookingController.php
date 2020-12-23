@@ -7,15 +7,16 @@ use App\Models\Form\BookingForm;
 use ColdBolt\FileSystem\Writer;
 use ColdBolt\AbstractController;
 
-class BookingController extends AbstractController {
-
+class BookingController extends AbstractController
+{
     private BookingForm $form;
 
-    public function index() {
-        if($this->request->hasContent('arrival')) {
+    public function index()
+    {
+        if ($this->request->hasContent('arrival')) {
             $this->form = new BookingForm($this->request->getContents());
 
-            if(!empty($errors = $this->form->getErrors())) {   
+            if (!empty($errors = $this->form->getErrors())) {
                 $this->onError($errors);
             } else {
                 $this->onSucess();
@@ -47,7 +48,7 @@ class BookingController extends AbstractController {
 
     private function onError(array $errors): void
     {
-        foreach($errors as $error) {
+        foreach ($errors as $error) {
             $this->flashbag->addError($error);
         }
     }

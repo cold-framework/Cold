@@ -7,10 +7,6 @@ use ColdBolt\Http\Exceptions\CookieNotFoundException;
 use ColdBolt\Http\Exceptions\HeaderNotFoundException;
 use ColdBolt\Http\Exceptions\ContentNotFoundException;
 
-/**
- * Represent the request
- * Be aware, to get the body, it's working only on POST
- */
 class Request
 {
     private array $queries;
@@ -22,7 +18,7 @@ class Request
     private string $ip;
     private string $uri;
     
-    public function __construct($get, $post, $files, $cookies, $server)
+    public function __construct(array $get = [], array $post = [], array $files = [], array $cookies = [], array $server = [])
     {
         $this->queries = $get;
         $this->contents = array_merge($post, $files);
