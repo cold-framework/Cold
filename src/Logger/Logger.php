@@ -10,13 +10,13 @@ class Logger {
     private string $file;
     private bool $debug;
 
-    const DATE_FORMAT = 'd-m-Y H:i:s';
+    private const DATE_FORMAT = 'd-m-Y H:i:s';
 
-    const DEBUG = 'DEBUG';
-    const INFO = 'INFO';
-    const WARN = 'WARN';
-    const ERROR = 'ERROR';
-    const FATAL = 'FATAL';
+    private const DEBUG = 'DEBUG';
+    private const INFO = 'INFO';
+    private const WARN = 'WARN';
+    private const ERROR = 'ERROR';
+    private const FATAL = 'FATAL';
 
     public function __construct(Configuration $configuration, string $filename = "app.txt")
     {
@@ -24,29 +24,35 @@ class Logger {
         $this->debug = $configuration->isDebug();
     }
 
-    private function write(string $prefix, string $message) {
+    private function write(string $prefix, string $message): void
+    {
         Writer::write($this->file, sprintf('[' . $prefix .'] %s | ' . $message . \PHP_EOL, date(self::DATE_FORMAT)));
     }
 
-    public function debug($message) {
+    public function debug($message): void
+    {
         if($this->debug) {
             $this->write(self::DEBUG, $message);
         }
     }
 
-    public function info($message) {
+    public function info($message): void
+    {
         $this->write(self::INFO, $message);
     }
 
-    public function warn($message) {
+    public function warn($message): void
+    {
         $this->write(self::WARN, $message);
     }
 
-    public function error($message) {
+    public function error($message): void
+    {
         $this->write(self::ERROR, $message);
     }
 
-    public function fatal($message) {
+    public function fatal($message): void
+    {
         $this->write(self::FATAL, $message);
     }
 }

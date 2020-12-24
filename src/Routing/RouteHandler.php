@@ -5,6 +5,7 @@ namespace ColdBolt\Routing;
 use ColdBolt\Http\Request;
 use ColdBolt\Http\Response;
 use ColdBolt\Template\Template;
+use JetBrains\PhpStorm\NoReturn;
 
 class RouteHandler
 {
@@ -20,7 +21,7 @@ class RouteHandler
         return $route;
     }
 
-    public static function notFound()
+    #[NoReturn] public static function notFound(): void
     {
         $template = (new Template())
             ->setTemplate('_http_error_code/404')

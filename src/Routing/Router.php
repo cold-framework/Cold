@@ -23,10 +23,8 @@ class Router
             $isRouteFinded = true;
             $route_part_counted = 0;
             foreach ($route_part as $index => $part) {
-                //monsite.fr/bonjour/kooka
-                // /bonjour/{pseudo}
 
-                if (0 === stripos($part, '{')) {
+                if (str_starts_with($part, '{')) {
                     $part = str_replace(['{', '}'], '', $part);
                     $route->addDynPart($part, $path[$index]);
                     $route_part_counted++;

@@ -43,8 +43,7 @@ class BookingForm extends Validator implements FormInterface {
     public function getData(): array
     {
         $object_data = get_object_vars($this);
-        unset($object_data['data']);
-        unset($object_data['error']);
+        unset($object_data['data'], $object_data['error']);
         return $object_data;
     }
 

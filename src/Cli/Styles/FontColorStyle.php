@@ -4,7 +4,7 @@ namespace ColdBolt\Cli\Styles;
 
 class FontColorStyle implements StylableString
 {
-    const COLOR = [
+    public const COLOR = [
         "black" => "\033[0;30m",
         "dark_gray" => "\033[1;30m",
         "blue" => "\033[0;34m",

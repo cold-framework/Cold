@@ -13,25 +13,14 @@ use ColdBolt\Routing\Exception\AttributNotDefinedException;
 
 abstract class AbstractController
 {
-    protected Request $request;
-    protected Response $response;
-    protected Route $route;
-    protected Configuration $configuration;
-    protected Logger $logger;
-    protected Flashbag $flashbag;
-    protected Template $template;
-
-    public function __construct(Request $request, Response $response, Route $route, Configuration $configuration, Logger $logger, Flashbag $flashbag, Template $template)
-    {
-        $this->request = $request;
-        $this->response = $response;
-        $this->route = $route;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
-        $this->flashbag = $flashbag;
-        $this->template = $template;
-    }
-
+    public function __construct(
+        protected Request $request,
+        protected Response $response,
+        protected Route $route,
+        protected Configuration $configuration,
+        protected Logger $logger,
+        protected Flashbag $flashbag,
+        protected Template $template){}
 
     public function getRouteAttr(string $attr_name): string
     {
@@ -42,7 +31,7 @@ abstract class AbstractController
         return $this->route->getDynPart()[$attr_name];
     }
 
-    public function render(string $template_name, ?array $params = null)
+    public function render(string $template_name, ?array $params = null): void
     {
         $template_content = $this->template->setTemplate($template_name)->render($params);
         $this->response->write($template_content);

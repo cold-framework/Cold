@@ -23,10 +23,10 @@ class Translator {
             $lang = $this->session->get('lang');
         }
 
-        $path = __DIR__ . '/../../' . $this->translation_dir . DIRECTORY_SEPARATOR . $lang . DIRECTORY_SEPARATOR . ($group === null ? 'default': $group) . '.json';
+        $path = __DIR__ . '/../../' . $this->translation_dir . DIRECTORY_SEPARATOR . $lang . DIRECTORY_SEPARATOR . ($group ?? 'default') . '.json';
         $file = Reader::read($path);
 
         $translation_file = json_decode($file, true);
-        return ($translation_file[$string] === null ? $string : $translation_file[$string] );
+        return ($translation_file[$string] ?? $string);
     }
 }

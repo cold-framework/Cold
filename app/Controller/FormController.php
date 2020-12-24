@@ -11,7 +11,7 @@ class FormController extends AbstractController
 {
     private BookingForm $form;
 
-    public function index()
+    public function index(): void
     {
         if ($this->request->hasContent('arrival')) {
             $this->form = new BookingForm($this->request->getContents());

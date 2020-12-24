@@ -12,10 +12,10 @@ class Response
 
     public function __construct()
     {
-        //Empty Constructor
+        // Empty Constructor
     }
 
-    public function setHTTPCode(int $code)
+    public function setHTTPCode(int $code): void
     {
         $this->HTTPCode = $code;
     }
@@ -56,7 +56,7 @@ class Response
 
     public function send(): void
     {
-        if ($this->headers != null) {
+        if ($this->headers !== null) {
             foreach ($this->headers as $key => $value) {
                 header($key . ': ' . $value);
             }

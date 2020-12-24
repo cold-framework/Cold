@@ -13,24 +13,29 @@ class Flashbag {
     private Template $template;
     private Translator $translator;
 
-    public function __construct(Translator $translator, Template $template) {
+    public function __construct(Translator $translator, Template $template)
+    {
         $this->translator = $translator;
         $this->template = $template;
     }
 
-    public function addError(string $message) {
+    public function addError(string $message): void
+    {
         $this->errors[] = $message;
     }
 
-    public function addAlert(string $message) {
+    public function addAlert(string $message): void
+    {
         $this->alerts[] = $message;
     }
 
-    public function addInfo(string $message) {
+    public function addInfo(string $message): void
+    {
         $this->infos[] = $message;
     }
 
-    public function formatError(): string {
+    public function formatError(): string
+    {
         $content = "";
         $this->template->setTemplate('_flash/error');
 

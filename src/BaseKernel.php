@@ -11,16 +11,16 @@ use ColdBolt\Routing\RouteHandler;
 
 abstract class BaseKernel
 {
-    public static function init()
+    public static function init(): void
     {
         $container = new Container();
 
-        /** @var Configuration */
+        /** @var $configuration Configuration */
         $configuration = $container->get(Configuration::class);
         $container->setInstance(Request::createFromGlobals());
 
         $routes = $configuration->getRoutes();
-        /** @var Request */
+        /** @var $request Request */
         $request = $container->get(Request::class);
         $route = RouteHandler::handle($routes, $request);
 
@@ -28,7 +28,7 @@ abstract class BaseKernel
         $container->setInstance($session);
         $container->setInstance($route);
 
-        list($class, $function) = explode('@', $route->getController());
+        [$class, $function] = explode('@', $route->getController());
         $class = $configuration->getControllersNamespace() . $class;
         
         /** @var AbstractController */

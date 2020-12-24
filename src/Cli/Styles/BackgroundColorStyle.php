@@ -4,7 +4,7 @@ namespace ColdBolt\Cli\Styles;
 
 class BackgroundColorStyle implements StylableString
 {
-    const COLOR = [
+    public const COLOR = [
         "black" => "\033[40m",
         "white" => "\e[107m",
         "red" => "\033[41m",

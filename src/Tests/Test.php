@@ -15,13 +15,15 @@ class Test
     private array $after = [];
 
     private ?AssertError $error = null;
+    private ?string $error_message = null;
 
-    public function __construct(bool $canFail = false)
+    public function __construct(bool $canFail = false, ?string $error_message = null)
     {
         $this->canFail = $canFail;
+        $this->error_message = $error_message;
     }
 
-    public function run(Object $ctx)
+    public function run(Object $ctx): void
     {
         foreach ($this->before as $before) {
             $ctx->$before();

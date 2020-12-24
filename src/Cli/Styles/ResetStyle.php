@@ -4,5 +4,5 @@ namespace ColdBolt\Cli\Styles;
 
 class ResetStyle implements StylableString
 {
-    const RESET = "\e[0m";
+    public const RESET = "\e[0m";
 }

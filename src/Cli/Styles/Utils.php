@@ -2,11 +2,13 @@
 
 namespace ColdBolt\Cli\Styles;
 
+use JetBrains\PhpStorm\Pure;
+
 class Utils
 {
-    public static function support_color(): bool
+    #[Pure] public static function support_color(): bool
     {
-        if (!(PHP_OS == "WINNT" || PHP_OS == "Windows")) {
+        if (!(PHP_OS === "WINNT" || PHP_OS === "Windows")) {
             return  posix_isatty(STDOUT);
         }
 

@@ -9,7 +9,6 @@ require_once __DIR__ . '/../Utils/Str.php';
 require_once __DIR__ . '/Exception/NamespaceNotFoundException.php';
 
 use ColdBolt\Autoload\Exception\NamespaceNotFoundException;
-use ColdBolt\Utils\Str;
 
 class Autoloader
 {
@@ -18,7 +17,7 @@ class Autoloader
         return json_decode(file_get_contents(__DIR__ . '/../../config.json'), true)['autoload'];
     }
 
-    public static function register()
+    public static function register(): void
     {
         $config = Autoloader::get_config();
 
@@ -26,7 +25,7 @@ class Autoloader
             $ns_path = null;
 
             foreach ($config['psr-4'] as $namespace => $path) {
-                if (Str::str_starts_with($class, $namespace)) {
+                if (str_starts_with($class, $namespace)) {
                     $ns_path = $path;
                     $class = str_replace($namespace, '', $class);
                 }

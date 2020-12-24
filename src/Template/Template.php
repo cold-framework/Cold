@@ -20,13 +20,11 @@ class Template
     public function render(?array $params = null): string
     {
         if (null !== $params) {
-            extract($params);
+            extract($params, EXTR_SKIP);
         }
 
         ob_start();
         include($this->path . '/' . $this->template . '.html');
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
+        return ob_get_clean();
     }
 }
