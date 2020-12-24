@@ -5,7 +5,6 @@
 */
 namespace ColdBolt;
 
-require_once __DIR__ . '/../Utils/Str.php';
 require_once __DIR__ . '/Exception/NamespaceNotFoundException.php';
 
 use ColdBolt\Autoload\Exception\NamespaceNotFoundException;
