@@ -7,7 +7,7 @@ use App\Models\Form\BookingForm;
 use ColdBolt\FileSystem\Writer;
 use ColdBolt\AbstractController;
 
-class BookingController extends AbstractController
+class FormController extends AbstractController
 {
     private BookingForm $form;
 
@@ -25,7 +25,7 @@ class BookingController extends AbstractController
             return;
         }
 
-        $this->render('booking/index', [
+        $this->render('form/index', [
             'title' => 'Réservation | La Loire à vélo',
             'flashbag' => $this->flashbag->formatError()
         ]);
@@ -33,11 +33,11 @@ class BookingController extends AbstractController
 
     private function onSucess(): void
     {
-        $content = $this->template->setTemplate('raw/raw_data')->render([
+        $content = $this->template->setTemplate('form/raw')->render([
             'form' => $this->form->getData(),
         ]);
 
-        $this->render('booking/sucess', [
+        $this->render('form/sucess', [
             'title' => 'Réservation | La Loire à vélo',
             'form' => $this->form->getData(),
         ]);

@@ -18,10 +18,10 @@
         "Tests\\TestCaseTest\\TestCaseTest"
     ],
     "routes": {
-        "/": "HomepageController@index",
-        "/contact": "HomepageController@contact",
-        "/booking": "BookingController@index",
-        "/booking/sucess": "BookingController@sucess",
-        "/booking/error": "BookingController@error"
+        "/": "ExempleController@index",
+        "/contact": "ExempleController@contact",
+        "/booking": "FormController@index",
+        "/booking/sucess": "FormController@sucess",
+        "/booking/error": "FormController@error"
     }
 }
