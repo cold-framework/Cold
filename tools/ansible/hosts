@@ -1,5 +1,5 @@
 [web]
-192.168.50.50
+192.168.0.46
 
 [web:vars]
-user=superkooka
+user=kooka

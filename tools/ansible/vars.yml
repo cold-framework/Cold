@@ -1,4 +1,4 @@
-domain: td.nsi.superkooka.local
+domain: td.nsi.superkooka.com
 ansistrano_deploy_from: "{{ playbook_dir }}/../../"
 ansistrano_deploy_to: "/home/{{ user }}/{{ domain }}"
 ansistrano_deploy_via: copy

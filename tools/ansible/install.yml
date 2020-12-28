@@ -54,9 +54,9 @@
       apt:
         update_cache: yes
         name:
-          - php7.4-fpm
-          - php7.4-mbstring
-          - php7.4-xml
+          - php8.0-fpm
+          - php8.0-mbstring
+          - php8.0-xml
         state: present
     - name: APT | Nginx Install
       apt:
