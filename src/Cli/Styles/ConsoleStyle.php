@@ -4,40 +4,45 @@ namespace ColdBolt\Cli\Styles;
 
 class ConsoleStyle
 {
-    public function write(string $texte): void
+    public function newLine(): void
     {
-        fwrite(STDOUT, $texte);
+        $this->write(PHP_EOL);
     }
 
-    public function writeln(string $texte): void
+    public function write(string $text): void
     {
-        $this->write($texte . PHP_EOL);
+        fwrite(STDOUT, $text);
     }
 
-    public function succes(string $texte): void
+    public function writeln(string $text): void
+    {
+        $this->write($text . PHP_EOL);
+    }
+
+    public function succes(string $text): void
     {
         if (Utils::support_color()) {
-            $this->writeln(BackgroundColorStyle::COLOR['green'] . $texte . ResetStyle::RESET);
+            $this->writeln(BackgroundColorStyle::COLOR['green'] . $text . ResetStyle::RESET);
         } else {
-            $this->writeln($texte);
+            $this->writeln($text);
         }
     }
 
-    public function warning(string $texte): void
+    public function warning(string $text): void
     {
         if (Utils::support_color()) {
-            $this->writeln(BackgroundColorStyle::COLOR['yellow'] . $texte . ResetStyle::RESET);
+            $this->writeln(BackgroundColorStyle::COLOR['yellow'] . $text . ResetStyle::RESET);
         } else {
-            $this->writeln($texte);
+            $this->writeln($text);
         }
     }
 
-    public function error(string $texte): void
+    public function error(string $text): void
     {
         if (Utils::support_color()) {
-            $this->writeln(BackgroundColorStyle::COLOR['red'] . $texte . ResetStyle::RESET);
+            $this->writeln(BackgroundColorStyle::COLOR['red'] . $text . ResetStyle::RESET);
         } else {
-            $this->writeln($texte);
+            $this->writeln($text);
         }
     }
 }

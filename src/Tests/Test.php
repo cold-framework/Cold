@@ -23,7 +23,7 @@ class Test
         $this->error_message = $error_message;
     }
 
-    public function run(Object $ctx): void
+    public function run(object $ctx): void
     {
         foreach ($this->before as $before) {
             $ctx->$before();

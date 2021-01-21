@@ -1,7 +1,11 @@
+#!/bin/php
+
 <?php
 
 use ColdBolt\Autoloader;
 use ColdBolt\Autoload\Container;
+use ColdBolt\Cli\Styles\FontColorStyle;
+use ColdBolt\Cli\Styles\ResetStyle;
 use ColdBolt\Configuration;
 use ColdBolt\Cli\Styles\ConsoleStyle;
 use ColdBolt\Tests\TestFinder;
@@ -17,6 +21,10 @@ $config = $container->get(Configuration::class);
 $testFinder = $container->resolve(TestFinder::class);
 $tests_classes = $testFinder->getTests();
 
+$tests_finished = [];
+
+$start_time = time();
+
 foreach ($tests_classes as $tests_class) {
     $tests = $tests_class->getTests();
     $class_name = $tests_class->getName();
@@ -25,9 +33,35 @@ foreach ($tests_classes as $tests_class) {
 
     foreach ($tests as $test) {
         $test->run($ctx);
-
-        if($test->hasError()) {
-            throw $test->getError();
-        }
+        $tests_finished[] = $test;
     }
 }
+
+// . ==> PASS
+// F (red) ==> FAIL
+// F (blue) ==> FAIL but allowed to fail
+$i = 0;
+
+foreach ($tests_finished as $test) {
+    if($i % 64 === 0) {
+        $consoleStyle->newLine();
+    }
+
+    if($test->hasError()) {
+        if($test->canFail()) {
+            $consoleStyle->write(FontColorStyle::COLOR['blue'] . 'F' . ResetStyle::RESET);
+            continue;
+        }
+
+        $consoleStyle->write(FontColorStyle::COLOR['red'] . 'F' . ResetStyle::RESET);
+        continue;
+    }
+
+    $consoleStyle->write('.');
+    $i++;
+}
+
+//TODO: Prety output
+$consoleStyle->newLine();
+$consoleStyle->newLine();
+$consoleStyle->writeln('Time ' . time() - $start_time . 'ms');

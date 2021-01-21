@@ -36,18 +36,30 @@ class TestFinder
                 $attrs = $method->getAttributes();
 
                 foreach ($attrs as $attr) {
-                    if ($attr->getName() === Test::class) {
-                        $test = (new \ReflectionClass(Test::class))->newInstanceArgs($attr->getArguments());
-                        $test->setName($method->getName());
-                        $testsForThisClass[] = $test;
-                    }
+                    switch ($attr->getName()) {
+                        case Test::class:
+                            try {
+                                $test = (new \ReflectionClass(Test::class))->newInstanceArgs($attr->getArguments());
+                                $test->setName($method->getName());
+                                $testsForThisClass[] = $test;
+                            } catch (\ReflectionException) {
 
-                    if ($attr->getName() === Before::class) {
-                        $before[] = (new \ReflectionClass(Before::class))->newInstanceArgs($attr->getArguments());
-                    }
+                            }
+                            break;
+                        case Before::class:
+                            try {
+                                $before[] = (new \ReflectionClass(Before::class))->newInstanceArgs($attr->getArguments());
+                            } catch (\ReflectionException) {
 
-                    if ($attr->getName() === After::class) {
-                        $after[] = (new \ReflectionClass(After::class))->newInstanceArgs($attr->getArguments());
+                            }
+                            break;
+                        case After::class:
+                            try {
+                                $after[] = (new \ReflectionClass(After::class))->newInstanceArgs($attr->getArguments());
+                            } catch (\ReflectionException) {
+
+                            }
+                            break;
                     }
                 }
             }
