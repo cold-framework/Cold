@@ -23,7 +23,7 @@ $tests_classes = $testFinder->getTests();
 
 $tests_finished = [];
 
-$start_time = time();
+$start_time = hrtime(true);
 
 foreach ($tests_classes as $tests_class) {
     $tests = $tests_class->getTests();
@@ -81,7 +81,6 @@ foreach ($tests_finished as $test) {
     $i++;
 }
 
-//TODO: Prety output
 $consoleStyle->newLine(2);
-$consoleStyle->writeln('Time ' . time() - $start_time . 'ms');
+$consoleStyle->writeln('Time ' . (hrtime(true) - $start_time)/1e+6 . 'ms');
 exit($status_code);
