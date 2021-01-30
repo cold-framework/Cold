@@ -15,7 +15,8 @@
         "default_language": "fr_FR"
     },
     "tests": [
-        "Tests\\TestCaseTest\\TestCaseTest"
+        "Tests\\TestCaseTest\\TestCaseTest",
+        "Tests\\HomepageControllerTest"
     ],
     "routes": {
         "/": "ExempleController@index",

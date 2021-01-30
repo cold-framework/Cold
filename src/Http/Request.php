@@ -17,7 +17,7 @@ class Request
     private array $server;
     private string $ip;
     private string $uri;
-    
+
     public function __construct(array $get = [], array $post = [], array $files = [], array $cookies = [], array $server = [])
     {
         $this->queries = $get;
@@ -27,7 +27,10 @@ class Request
         $this->method = $this->server['REQUEST_METHOD'];
         $this->ip = $this->server['REMOTE_ADDR'];
         $this->uri = strtok($this->server['REQUEST_URI'], '?');
-        $this->headers = getallheaders();
+
+        if (function_exists("getallheaders")) {
+            $this->headers = getallheaders();
+        }
     }
 
     public function getHeader(string $header): string
@@ -120,7 +123,7 @@ class Request
     {
         return $this->uri;
     }
-    
+
     public static function createFromGlobals(): Request
     {
         return new Request($_GET, $_POST, $_FILES, $_COOKIE, $_SERVER);

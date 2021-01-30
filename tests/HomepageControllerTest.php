@@ -2,15 +2,22 @@
 
 namespace Tests;
 
+use ColdBolt\Http\Request;
 use ColdBolt\Tests\ControllerTestCase;
+use ColdBolt\Tests\Test;
 
 class HomepageControllerTest extends ControllerTestCase
 {
-    #[Test(error_message: "Le test passe pas", can_be_fail: true)]
+    #[Test(error_message: "Le test passe pas")]
     public function should_have_http_code_200(): void
     {
-        $code = 200;
+        $request = new Request([], [], [], [], [
+            'REQUEST_METHOD' => 'GET',
+            'REMOTE_ADDR' => '0.0.0.0',
+            'REQUEST_URI' => '/'
+        ]);
 
-        $this->assertSame(200, $code);
+        $response = $this->handle($request);
+        $this->assertSame(200, $response->getHTTPCode());
     }
 }

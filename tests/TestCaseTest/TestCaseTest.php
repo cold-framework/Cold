@@ -199,14 +199,14 @@ class TestCaseTest extends CommonTestCase
     #[Test]
     public function should_assert_it_is_null(): void
     {
-        $this->assertNull(false);
+        $this->assertNull(null);
     }
 
     #[Test]
     public function should_be_assert_object_have_attr(): void
     {
         $basicClass = new BasicClass();
-        $this->assertObjectHasAttribute('as', $basicClass);
+        $this->assertObjectHasAttribute('a', $basicClass);
     }
 
     #[Test]
@@ -230,6 +230,6 @@ class TestCaseTest extends CommonTestCase
     #[Test(canFail: true)]
     public function should_be_crash_but_can_be_fail(): void
     {
-        $this->assertTrue(false);
+        $this->assertTrue(false, 'Failed to assert false is true');
     }
 }

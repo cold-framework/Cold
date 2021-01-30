@@ -355,7 +355,7 @@ abstract class CommonTestCase
         throw new NotImplementedYetException;
     }
     
-    protected function assertTrue($variable, ?string $message = null)
+    protected function assertTrue($variable, ?string $message = null): void
     {
         if (!$variable) {
             throw new NotTrueError($message);

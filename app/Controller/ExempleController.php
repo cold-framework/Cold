@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use ColdBolt\AbstractController;
+use ColdBolt\Http\Response;
 
 class ExempleController extends AbstractController {
 
-    public function index(): void
+    public function index(): Response
     {
-        $this->render('index', [
+        return $this->render('index', [
             'title' => 'Exemple Page'
         ]);
     }
