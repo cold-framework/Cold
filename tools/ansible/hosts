@@ -1,5 +1,0 @@
-[web]
-192.168.0.46
-
-[web:vars]
-user=kooka

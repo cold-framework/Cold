@@ -1,6 +1,0 @@
-domain: td.nsi.superkooka.com
-ansistrano_deploy_from: "{{ playbook_dir }}/../../"
-ansistrano_deploy_to: "/home/{{ user }}/{{ domain }}"
-ansistrano_deploy_via: copy
-ansistrano_keep_releases: 5
-ansistrano_shared_paths: ["var"]
