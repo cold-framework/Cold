@@ -19,12 +19,12 @@ abstract class BaseKernel
 
         $routes = $configuration->getRoutes();
         $route = RouteHandler::handle($routes, $request);
-        $container->setInstance($route);
 
         if (null === $route) {
             return (new Response())
                 ->setHTTPCode(404);
         }
+        $container->setInstance($route);
 
         [$class, $function] = explode('@', $route->getController());
         $class = $configuration->getControllersNamespace() . $class;
