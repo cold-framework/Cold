@@ -15,19 +15,22 @@ class Response
         // Empty Constructor
     }
 
-    public function setHTTPCode(int $code): void
+    public function setHTTPCode(int $code): self
     {
         $this->HTTPCode = $code;
+        return $this;
     }
 
-    public function setHeader($key, $value): void
+    public function setHeader($key, $value): self
     {
         $this->headers[$key] = $value;
+        return $this;
     }
 
-    public function removeHeader($header): void
+    public function removeHeader($header): self
     {
         unset($this->headers[$header]);
+        return $this;
     }
 
     public function hasHeader($header): bool
@@ -52,6 +55,11 @@ class Response
     public function write($body): void
     {
         $this->body = $body;
+    }
+
+    public function getHTTPCode(): int
+    {
+        return $this->HTTPCode;
     }
 
     public function send(): void
