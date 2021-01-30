@@ -4,9 +4,12 @@ namespace ColdBolt\Cli\Styles;
 
 class ConsoleStyle
 {
-    public function newLine(): void
+    public function newLine(int $number = 1): void
     {
-        $this->write(PHP_EOL);
+        for($i = 1; $i < $number; $i++)
+        {
+            $this->write(PHP_EOL);
+        }
     }
 
     public function write(string $text): void
@@ -32,6 +35,15 @@ class ConsoleStyle
     {
         if (Utils::support_color()) {
             $this->writeln(BackgroundColorStyle::COLOR['yellow'] . $text . ResetStyle::RESET);
+        } else {
+            $this->writeln($text);
+        }
+    }
+
+    public function info(string $text): void
+    {
+        if (Utils::support_color()) {
+            $this->writeln(BackgroundColorStyle::COLOR['blue'] . $text . ResetStyle::RESET);
         } else {
             $this->writeln($text);
         }
