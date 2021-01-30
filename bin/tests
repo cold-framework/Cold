@@ -37,9 +37,6 @@ foreach ($tests_classes as $tests_class) {
     }
 }
 
-// . ==> PASS
-// F (red) ==> FAIL
-// F (blue) ==> FAIL but allowed to fail
 $i = 0;
 
 foreach ($tests_finished as $test) {
@@ -57,11 +54,34 @@ foreach ($tests_finished as $test) {
         continue;
     }
 
+    /** @noinspection DisconnectedForeachInstructionInspection */
     $consoleStyle->write('.');
     $i++;
 }
 
+$consoleStyle->newLine(3);
+$status_code = 0;
+foreach ($tests_finished as $test) {
+    if($test->hasError()) {
+        if($test->canFail()) {
+            $consoleStyle->info($test->getName());
+            $consoleStyle->writeln("\t" . $test->getError()->getMessage() . ' on ' . $test->getError()->getFile() . ' at line ' . $test->getError()->getLine());
+            $consoleStyle->newLine(2);
+            continue;
+        }
+
+        $consoleStyle->error($test->getName());
+        $consoleStyle->writeln("\t" . $test->getError()->getMessage() . ' on ' . $test->getError()->getFile() . ' at line ' . $test->getError()->getLine());
+
+        $consoleStyle->newLine(2);
+        $status_code = 1;
+        continue;
+    }
+
+    $i++;
+}
+
 //TODO: Prety output
-$consoleStyle->newLine();
-$consoleStyle->newLine();
+$consoleStyle->newLine(2);
 $consoleStyle->writeln('Time ' . time() - $start_time . 'ms');
+exit($status_code);
