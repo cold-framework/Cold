@@ -44,6 +44,10 @@ abstract class Validator
         return $this->errors;
     }
 
-    abstract public function getData(): array;
-    abstract protected function getValidationFields(): array;
+    public function getData(): array
+    {
+        $object_data = get_object_vars($this);
+        unset($object_data['data'], $object_data['error']);
+        return $object_data;
+    }
 }

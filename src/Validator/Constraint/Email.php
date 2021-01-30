@@ -2,6 +2,7 @@
 
 namespace ColdBolt\Validator\Constraint;
 
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
 class Email extends Constraint
 {
     public function validate(): bool

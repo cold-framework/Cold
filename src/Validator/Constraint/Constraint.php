@@ -7,11 +7,6 @@ abstract class Constraint
     protected string $data;
     protected array $errors = [];
 
-    public function __construct(string $data)
-    {
-        $this->data = $data;
-    }
-
     abstract public function validate(): bool;
 
     public function getErrors(): array
@@ -19,6 +14,11 @@ abstract class Constraint
         return $this->errors;
     }
 
+    public function setData(string $data): self
+    {
+        $this->data = $data;
+        return $this;
+    }
     
     protected function addError(string $error): void
     {

@@ -2,25 +2,51 @@
 
 namespace App\Models\Form;
 
-use ColdBolt\Validator\Validator;
-use ColdBolt\Validator\FormInterface;
+use ColdBolt\Validator\Constraint\Lenght;
 use ColdBolt\Validator\Constraint\Date;
 use ColdBolt\Validator\Constraint\Email;
 use ColdBolt\Validator\Constraint\Number;
-use ColdBolt\Validator\Constraint\Optional;
 use ColdBolt\Validator\Constraint\Required;
 
-class BookingForm extends Validator implements FormInterface {
+class BookingForm extends Validator {
+
+    #[Required]
+    #[Date(format: 'default-html')]
     private string $arrival;
+
+    #[Required]
+    #[Date(format: 'default-html')]
     private string $departure;
+
+    #[Required]
+    #[Number(min: 1, max: 10)]
     private string $adult;
+
+    #[Number(min: 1, max: 10)]
     private string $child;
+
+    #[Required]
+    #[Lenght(min: 3)]
     private string $name;
+
+    #[Required]
+    #[Lenght(min: 3)]
     private string $surname;
+
+    #[Required]
+    #[Email]
     private string $email;
+
+    #[Required]
     private string $phone;
+
+    #[Required]
     private string $city;
+
+    #[Required]
+    #[Number]
     private string $postal_code;
+
     private string $informations;
 
     public function __construct(array $data)
@@ -39,28 +65,59 @@ class BookingForm extends Validator implements FormInterface {
 
         $this->validate();
     }
-    
-    public function getData(): array
+
+    public function getArrival(): string
     {
-        $object_data = get_object_vars($this);
-        unset($object_data['data'], $object_data['error']);
-        return $object_data;
+        return $this->arrival;
     }
 
-    public function getValidationFields(): array
+    public function getDeparture(): string
     {
-        return [
-            'arrival' => [Required::class, Date::class],
-            'departure' => [Required::class, Date::class],
-            'adult' => [Required::class, Number::class],
-            'child' => [Optional::class, Number::class],
-            'name' => [Required::class],
-            'surname' => [Required::class],
-            'email' => [Required::class, Email::class],
-            'phone' => [Required::class],
-            'city' => [Required::class],
-            'postal_code' => [Required::class, Number::class],
-            'informations' => [Optional::class, Number::class]
-        ];
+        return $this->departure;
+    }
+
+    public function getAdult(): string
+    {
+        return $this->adult;
+    }
+
+    public function getChild(): string
+    {
+        return $this->child;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getSurname(): string
+    {
+        return $this->surname;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    public function getPostalCode(): string
+    {
+        return $this->postal_code;
+    }
+
+    public function getInformations(): string
+    {
+        return $this->informations;
     }
 }
