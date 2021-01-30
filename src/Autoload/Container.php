@@ -72,7 +72,7 @@ class Container
         $constructor_parameters = [];
 
         foreach ($parameters as $parameter) {
-            $paramClass =  $parameter->getType() && !$parameter->getType()->isBuiltin() ? new \ReflectionClass($parameter->getType()->getName()): null;
+            $paramClass = $parameter->getType() && !$parameter->getType()->isBuiltin() ? new \ReflectionClass($parameter->getType()->getName()): null;
             if ($paramClass && !$parameter->getType()->isBuiltin()) {
                 $constructor_parameters[] = $this->get($paramClass->getName());
             } else {
