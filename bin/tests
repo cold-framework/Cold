@@ -37,9 +37,8 @@ foreach ($tests_classes as $tests_class) {
     }
 }
 
-$i = 0;
+foreach ($tests_finished as $i => $test) {
 
-foreach ($tests_finished as $test) {
     if ($i % 64 === 0) {
         $consoleStyle->newLine();
     }
@@ -56,11 +55,11 @@ foreach ($tests_finished as $test) {
 
     /** @noinspection DisconnectedForeachInstructionInspection */
     $consoleStyle->write('.');
-    $i++;
 }
 
 $consoleStyle->newLine(3);
 $status_code = 0;
+
 foreach ($tests_finished as $test) {
     if ($test->hasError()) {
         if ($test->canFail()) {
@@ -77,8 +76,6 @@ foreach ($tests_finished as $test) {
         $status_code = 1;
         continue;
     }
-
-    $i++;
 }
 
 $consoleStyle->newLine(2);
