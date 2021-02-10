@@ -6,8 +6,8 @@ use ColdBolt\Autoloader;
 use ColdBolt\Autoload\Container;
 use ColdBolt\Cli\Styles\FontColorStyle;
 use ColdBolt\Cli\Styles\ResetStyle;
-use ColdBolt\Configuration;
 use ColdBolt\Cli\Styles\ConsoleStyle;
+use ColdBolt\Configuration;
 use ColdBolt\Tests\TestFinder;
 
 require_once __DIR__ . '/../src/Autoload/Autoloader.php';
@@ -40,12 +40,12 @@ foreach ($tests_classes as $tests_class) {
 $i = 0;
 
 foreach ($tests_finished as $test) {
-    if($i % 64 === 0) {
+    if ($i % 64 === 0) {
         $consoleStyle->newLine();
     }
 
-    if($test->hasError()) {
-        if($test->canFail()) {
+    if ($test->hasError()) {
+        if ($test->canFail()) {
             $consoleStyle->write(FontColorStyle::COLOR['blue'] . 'F' . ResetStyle::RESET);
             continue;
         }
@@ -62,8 +62,8 @@ foreach ($tests_finished as $test) {
 $consoleStyle->newLine(3);
 $status_code = 0;
 foreach ($tests_finished as $test) {
-    if($test->hasError()) {
-        if($test->canFail()) {
+    if ($test->hasError()) {
+        if ($test->canFail()) {
             $consoleStyle->info($test->getName());
             $consoleStyle->writeln("\t" . $test->getError()->getMessage() . ' on ' . $test->getError()->getFile() . ' at line ' . $test->getError()->getLine());
             $consoleStyle->newLine(2);
@@ -82,5 +82,5 @@ foreach ($tests_finished as $test) {
 }
 
 $consoleStyle->newLine(2);
-$consoleStyle->writeln('Time ' . (hrtime(true) - $start_time)/1e+6 . 'ms');
+$consoleStyle->writeln('Time ' . (hrtime(true) - $start_time) / 1e+6 . 'ms');
 exit($status_code);
