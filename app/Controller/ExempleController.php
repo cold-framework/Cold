@@ -5,7 +5,8 @@ namespace App\Controller;
 use ColdBolt\AbstractController;
 use ColdBolt\Http\Response;
 
-class ExempleController extends AbstractController {
+class ExempleController extends AbstractController
+{
 
     public function index(): Response
     {
