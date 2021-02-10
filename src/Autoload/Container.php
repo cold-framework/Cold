@@ -2,7 +2,6 @@
 
 namespace ColdBolt\Autoload;
 
-use ReflectionClass;
 
 class Container
 {
@@ -16,6 +15,11 @@ class Container
         return $this;
     }
 
+    /**
+     * @param $instance
+     * @return $this
+     * @throws \ReflectionException
+     */
     public function setInstance($instance): self
     {
         $key = (new \ReflectionClass($instance))->getName();
@@ -29,7 +33,7 @@ class Container
         return $this;
     }
 
-    public function get(string $key): Object
+    public function get(string $key): object
     {
         if (isset($this->factory[$key])) {
             return $this->factory[$key];
@@ -40,7 +44,7 @@ class Container
                 $this->instances[$key] = $this->registery[$key]();
             } else {
                 $obj = $this->resolve($key);
-                if(!is_null($obj)) {
+                if (!is_null($obj)) {
                     $this->instances[$key] = $obj;
                 }
             }
@@ -49,22 +53,37 @@ class Container
         return $this->instances[$key];
     }
 
-    public function resolve(string $className): ?Object {
+    /**
+     * @param string $className
+     *
+     * @return ?object
+     */
+    public function resolve(string $className): ?object
+    {
+        try {
+            $reflection = new \ReflectionClass($className);
+            $parameters = $this->getConstructorParameters($reflection);
+            if ($reflection->isInstantiable()) {
+                return $reflection->newInstanceArgs($parameters);
+            }
+        } catch (\ReflectionException $e) {
 
-        $reflection = new \ReflectionClass($className);
-        $parameters = $this->getConstructorParameters($reflection);
-        if ($reflection->isInstantiable()) {
-            return $reflection->newInstanceArgs($parameters);
         }
-
         return null;
+
     }
 
-    private function getConstructorParameters(ReflectionClass $reflection): array
+    /**
+     * @param \ReflectionClass $reflection
+     *
+     * @return array
+     * @throws \ReflectionException
+     */
+    private function getConstructorParameters(\ReflectionClass $reflection): array
     {
         $constructor = $reflection->getConstructor();
 
-        if(is_null($constructor)) {
+        if (is_null($constructor)) {
             return [];
         }
 
@@ -72,7 +91,7 @@ class Container
         $constructor_parameters = [];
 
         foreach ($parameters as $parameter) {
-            $paramClass = $parameter->getType() && !$parameter->getType()->isBuiltin() ? new \ReflectionClass($parameter->getType()->getName()): null;
+            $paramClass = $parameter->getType() && !$parameter->getType()->isBuiltin() ? new \ReflectionClass($parameter->getType()->getName()) : null;
             if ($paramClass && !$parameter->getType()->isBuiltin()) {
                 $constructor_parameters[] = $this->get($paramClass->getName());
             } else {

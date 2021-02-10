@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\App;
 
 use ColdBolt\Http\Request;
 use ColdBolt\Tests\ControllerTestCase;

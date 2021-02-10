@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Tests\TestCaseTest;
+namespace Tests\TestCase;
 
 use ColdBolt\Tests\Test;
-use Tests\TestCaseTest\BasicClass;
 use ColdBolt\Tests\CommonTestCase;
+use Tests\Testcase\Fixtures\BasicClass;
 
-class TestCaseTest extends CommonTestCase
+class TestcaseTest extends CommonTestCase
 {
     #[Test]
     public function should_assert_array_has_key(): void
@@ -45,13 +45,13 @@ class TestCaseTest extends CommonTestCase
     #[Test]
     public function should_assert_directory_is_readable(): void
     {
-        $this->assertDirectoryIsReadable('..');
+        $this->assertDirectoryIsReadable('./readeable_folder');
     }
 
     #[Test]
     public function should_assert_directory_is_writable(): void
     {
-        $this->assertDirectoryIsWritable('..');
+        $this->assertDirectoryIsWritable('./writable_folder');
     }
 
     #[Test]
@@ -168,13 +168,13 @@ class TestCaseTest extends CommonTestCase
     #[Test]
     public function should_assert_it_is_readable(): void
     {
-        $this->assertIsReadable(__DIR__ . "/readable_folder/readable_file");
+        $this->assertIsReadable(__DIR__ . "/Fixtures/readable_folder/readable_file");
     }
 
     #[Test]
     public function should_assert_it_is_writable(): void
     {
-        $this->assertIsWritable(__DIR__ . "/writable_folder/writable_file");
+        $this->assertIsWritable(__DIR__ . "/Fixtures/writable_folder/writable_file");
     }
 
     #[Test]
