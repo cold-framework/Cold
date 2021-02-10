@@ -19,10 +19,6 @@
         "Tests\\HomepageControllerTest"
     ],
     "routes": {
-        "/": "ExempleController@index",
-        "/contact": "ExempleController@contact",
-        "/booking": "FormController@index",
-        "/booking/sucess": "FormController@sucess",
-        "/booking/error": "FormController@error"
+        "/": "ExempleController@index"
     }
 }
