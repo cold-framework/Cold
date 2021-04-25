@@ -2,7 +2,7 @@
 
 namespace ColdBolt\Translation;
 
-use ColdBolt\Configuration;
+use ColdBolt\Configuration\Configuration;
 use ColdBolt\FileSystem\Reader;
 use ColdBolt\Http\Session;
 
@@ -13,7 +13,7 @@ class Translator {
 
     public function __construct(Configuration $configuration, Session $session)
     {
-        $this->translation_dir = $configuration->getTranslationDir();
+        $this->translation_dir = $configuration->get('framework.translation.path');
         $this->session = $session;
     }
 

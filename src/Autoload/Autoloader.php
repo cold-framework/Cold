@@ -4,9 +4,10 @@
 namespace ColdBolt;
 
 require_once __DIR__ . '/Exception/NamespaceNotFoundException.php';
-require_once __DIR__ . '/../Configuration.php';
+require_once __DIR__ . '/../Configuration/Configuration.php';
 
 use ColdBolt\Autoload\Exception\NamespaceNotFoundException;
+use ColdBolt\Configuration\Configuration;
 
 class Autoloader
 {

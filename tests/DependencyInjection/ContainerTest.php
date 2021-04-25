@@ -17,7 +17,7 @@ use Tests\DependencyInjection\Fixtures\PrimitiveConstructorWithoutDefaultValueCl
 class ContainerTest extends CommonTestCase
 {
     #[Test]
-    public function container_can_resolve_class_with_empty_contructor(): void
+    public function container_can_resolve_class_with_empty_constructor(): void
     {
         $container = new Container;
         $instance = $container->resolve(EmptyConstructorClass::class);

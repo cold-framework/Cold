@@ -2,7 +2,7 @@
 
 namespace ColdBolt\Tests;
 
-use ColdBolt\Configuration;
+use ColdBolt\Configuration\Configuration;
 
 class TestFinder
 {

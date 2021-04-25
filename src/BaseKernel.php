@@ -2,6 +2,7 @@
 
 namespace ColdBolt;
 
+use ColdBolt\Configuration\Configuration;
 use ColdBolt\Http\Request;
 use ColdBolt\Autoload\Container;
 use ColdBolt\Http\Response;

@@ -2,7 +2,7 @@
 
 namespace ColdBolt\Logger;
 
-use ColdBolt\Configuration;
+use ColdBolt\Configuration\Configuration;
 use ColdBolt\FileSystem\Writer;
 
 class Logger {

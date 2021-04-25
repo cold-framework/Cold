@@ -7,7 +7,7 @@ use ColdBolt\Autoload\Container;
 use ColdBolt\Cli\Styles\FontColorStyle;
 use ColdBolt\Cli\Styles\ResetStyle;
 use ColdBolt\Cli\Styles\ConsoleStyle;
-use ColdBolt\Configuration;
+use ColdBolt\Configuration\Configuration;
 use ColdBolt\Tests\TestFinder;
 
 require_once __DIR__ . '/../src/Autoload/Autoloader.php';
