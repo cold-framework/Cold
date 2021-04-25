@@ -2,54 +2,39 @@
 
 namespace ColdBolt;
 
-use ColdBolt\FileSystem\Reader;
 
 class Configuration
 {
-    private array $config;
 
-    public function __construct()
+    protected array $cache = [];
+
+    public function get(string $path): string | array
     {
-        $this->config = json_decode(Reader::read(__DIR__ . '/../config.json'), true);
+        $filename = $this->get_filename_from_path($path);
+
+        if (!isset($this->cache[$filename])) {
+            $this->cache[$filename] = include __DIR__ . '/../config/' . $filename;
+        }
+
+        $configuration_value = $this->cache[$filename];
+        $configuration_keys = explode('.', $path);
+        unset($configuration_keys[0]);
+        $configuration_keys = array_values($configuration_keys);
+
+        foreach ($configuration_keys as $configuration_key) {
+            $configuration_value = $configuration_value[$configuration_key];
+        }
+
+        return $configuration_value;
     }
 
-    public function isDebug(): bool
+    public function has(string $path): bool
     {
-        return $this->config['debug'];
+        return true;
     }
 
-    public function getControllersNamespace(): string
+    private function get_filename_from_path(string $path): string
     {
-        return $this->config['controllers'];
-    }
-
-    public function getTemplatesDir(): string
-    {
-        return $this->config['templates'];
-    }
-
-    public function getTranslationDir(): string
-    {
-        return $this->config['translation']['dir'];
-    }
-
-    public function getDefaultLang(): string
-    {
-        return $this->config['translation']['default_language'];
-    }
-
-    public function getTests(): array
-    {
-        return $this->config['tests'];
-    }
-
-    public function getRoutes(): array
-    {
-        return $this->config['routes'];
-    }
-
-    public function getDataDir(): string
-    {
-        return __DIR__ . '/../' .$this->config['data'];
+        return explode('.', $path)[0] . '.php';
     }
 }

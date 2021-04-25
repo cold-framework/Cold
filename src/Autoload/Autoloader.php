@@ -4,32 +4,46 @@
 namespace ColdBolt;
 
 require_once __DIR__ . '/Exception/NamespaceNotFoundException.php';
+require_once __DIR__ . '/../Configuration.php';
 
 use ColdBolt\Autoload\Exception\NamespaceNotFoundException;
 
 class Autoloader
 {
-    public static function get_config()
-    {
-        try {
-            return json_decode(file_get_contents(__DIR__ . '/../../config.json'), true, 512, JSON_THROW_ON_ERROR)['autoload'];
-        } catch (\JsonException $e) {
-            exit(1);
-        }
-    }
 
     public static function register(): void
     {
-        $config = self::get_config();
+        $configuration = new Configuration();
+        $dev_autoloader = $configuration
+            ->get('framework.autoload-dev');
 
-        foreach ($config['files'] as $file) {
-            require_once __DIR__ . '/../../' . $file;
+        $autoload = $configuration
+            ->get('framework.autoload');
+
+        if (isset($dev_autoloader['files'])) {
+            foreach ($dev_autoloader['files'] as $file) {
+                require_once __DIR__ . '/../../' . $file;
+            }
         }
 
-        spl_autoload_register(function ($class) use ($config) {
+        if (isset($autoload['files'])) {
+            foreach ($autoload['files'] as $file) {
+                require_once __DIR__ . '/../../' . $file;
+            }
+        }
+
+        spl_autoload_register(function ($class) use ($autoload, $dev_autoloader) {
             $ns_path = null;
 
-            foreach ($config['psr-4'] as $namespace => $path) {
+            foreach ($dev_autoloader['psr-4'] as $namespace => $path) {
+                if (str_starts_with($class, $namespace)) {
+                    $ns_path = $path;
+                    $class = str_replace($namespace, '', $class);
+                    break;
+                }
+            }
+
+            foreach ($autoload['psr-4'] as $namespace => $path) {
                 if (str_starts_with($class, $namespace)) {
                     $ns_path = $path;
                     $class = str_replace($namespace, '', $class);

@@ -17,7 +17,7 @@ abstract class BaseKernel
         /** @var $configuration Configuration */
         $configuration = $container->get(Configuration::class);
 
-        $routes = $configuration->getRoutes();
+        $routes = $configuration->get('route');
         $route = RouteHandler::handle($routes, $request);
 
         if (null === $route) {
@@ -26,8 +26,8 @@ abstract class BaseKernel
         }
         $container->setInstance($route);
 
-        [$class, $function] = explode('@', $route->getController());
-        $class = $configuration->getControllersNamespace() . $class;
+        [$class, $function] = explode('@', $route->get_controller());
+        $class = $configuration->get('framework.controller') . $class;
 
         /** @var AbstractController */
         $controller = $container->get($class);

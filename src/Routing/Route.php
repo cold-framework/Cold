@@ -4,35 +4,49 @@ namespace ColdBolt\Routing;
 
 class Route
 {
+    private ?string $name;
+    private string $url;
     private string $controller;
-    private string $path;
+    private array $methods;
 
-    private array $uri_dyn_part;
+    private array $url_dyn_part;
 
-    public function __construct(string $controller, string $path)
+    public function __construct(array $route)
     {
-        $this->controller = $controller;
-        $this->path = $path;
+        $route = array_merge([
+            'name' => null,
+            'methods' => [],
+        ], $route);
+
+        $this->name = $route['name'];
+        $this->controller = $route['controller'];
+        $this->url = $route['url'];
+        $this->methods = $route['methods'];
     }
 
-    public function addDynPart(string $partName, string $part): self
+    public function add_dynamic_part(string $key, string $value): self
     {
-        $this->uri_dyn_part[$partName] = $part;
+        $this->url_dyn_part[$key] = $value;
         return $this;
     }
 
-    public function getController(): string
+    public function get_controller(): string
     {
         return $this->controller;
     }
 
-    public function getPath(): string
+    public function get_url(): string
     {
-        return $this->path;
+        return $this->url;
     }
 
-    public function getDynPart(): array
+    public function get_dynamic_part(): array
     {
-        return $this->uri_dyn_part;
+        return $this->url_dyn_part;
+    }
+
+    public function has_method(string $method): bool
+    {
+        return in_array($method, $this->methods);
     }
 }

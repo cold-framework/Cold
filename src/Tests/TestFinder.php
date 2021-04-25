@@ -20,7 +20,7 @@ class TestFinder
      */
     public function getTests(): array
     {
-        $testClasses = $this->config->getTests();
+        $testClasses = $this->config->get('test');
 
         $tests = [];
 

@@ -8,7 +8,7 @@ class Response
 {
     private int $HTTPCode = 200;
     private ?array $headers = null;
-    private string $body;
+    private string $body = "";
 
     public function __construct()
     {

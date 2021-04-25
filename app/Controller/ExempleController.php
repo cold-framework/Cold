@@ -14,4 +14,11 @@ class ExempleController extends AbstractController
             'title' => 'Exemple Page'
         ]);
     }
+
+    public function sayHello(): Response
+    {
+        return $this->render('hello', [
+            'name' => $this->getRouteAttr('name'),
+        ]);
+    }
 }
