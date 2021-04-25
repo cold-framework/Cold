@@ -1,18 +1,18 @@
 <?php declare(strict_types=1);
 
 
-namespace Tests\DI;
+namespace Tests\DependencyInjection;
 
 
 use ColdBolt\Autoload\Container;
 use ColdBolt\Tests\CommonTestCase;
 use ColdBolt\Tests\Test;
-use Tests\DI\Fixtures\BasicInterface;
-use Tests\DI\Fixtures\EmptyConstructorClass;
-use Tests\DI\Fixtures\ImplementBasicInterfaceClass;
-use Tests\DI\Fixtures\InterfaceConstructorClass;
-use Tests\DI\Fixtures\PrimitiveConstructorClass;
-use Tests\DI\Fixtures\PrimitiveConstructorWithoutDefaultValueClass;
+use Tests\DependencyInjection\Fixtures\BasicInterface;
+use Tests\DependencyInjection\Fixtures\EmptyConstructorClass;
+use Tests\DependencyInjection\Fixtures\ImplementBasicInterfaceClass;
+use Tests\DependencyInjection\Fixtures\InterfaceConstructorClass;
+use Tests\DependencyInjection\Fixtures\PrimitiveConstructorClass;
+use Tests\DependencyInjection\Fixtures\PrimitiveConstructorWithoutDefaultValueClass;
 
 class ContainerTest extends CommonTestCase
 {

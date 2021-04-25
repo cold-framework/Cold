@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tests\DI\Fixtures;
+namespace Tests\DependencyInjection\Fixtures;
 
 
 class ImplementBasicInterfaceClass implements BasicInterface

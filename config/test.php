@@ -2,6 +2,6 @@
 
 return [
     "Tests\\App\\HomepageControllerTest",
-    "Tests\\DI\\ContainerTest",
+    "Tests\\DependencyInjection\\ContainerTest",
     "Tests\\Testcase\\TestcaseTest"
 ];
