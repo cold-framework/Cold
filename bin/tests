@@ -15,6 +15,7 @@ Autoloader::register();
 
 $container = new Container;
 $consoleStyle = new ConsoleStyle;
+/** @var Configuration $config */
 $config = $container->get(Configuration::class);
 
 /** @var $testFinder TestFinder */
