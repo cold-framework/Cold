@@ -12,6 +12,6 @@ class RouteHandler
     public static function handle(array $routes, Request $request): ?Route
     {
         $router = new Router($routes);
-        return $router->match($request->getURI());
+        return $router->match($request->getURI(), $request->getMethod());
     }
 }

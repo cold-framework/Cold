@@ -21,11 +21,11 @@ abstract class AbstractController
 
     public function getRouteAttr(string $attr_name): string
     {
-        if (!isset($this->route->getDynPart()[$attr_name])) {
+        if (!isset($this->route->get_dynamic_part()[$attr_name])) {
             throw new AttributNotDefinedException;
         }
 
-        return $this->route->getDynPart()[$attr_name];
+        return $this->route->get_dynamic_part()[$attr_name];
     }
 
     public function render(string $template_name, ?array $params = null): Response

@@ -11,22 +11,24 @@ class Router
         $this->routes = $routes;
     }
 
-    public function match(string $uri): ?Route
+    public function match(string $uri, string $method): ?Route
     {
         $path = $this->split_uri($uri);
 
-        foreach ($this->routes as $route_path => $controller) {
-            $route_part = $this->split_uri($route_path);
+        foreach ($this->routes as $route) {
+            $route = new Route($route);
+            $route_part = $this->split_uri($route->get_url());
 
-            $route = new Route($controller, $route_path);
+            if (!$route->has_method($method)) {
+                continue;
+            }
 
-            $isRouteFinded = true;
+            $is_route_found = true;
             $route_part_counted = 0;
             foreach ($route_part as $index => $part) {
-
                 if (str_starts_with($part, '{')) {
                     $part = str_replace(['{', '}'], '', $part);
-                    $route->addDynPart($part, $path[$index]);
+                    $route->add_dynamic_part($part, $path[$index]);
                     $route_part_counted++;
                     continue;
                 }
@@ -36,11 +38,11 @@ class Router
                     continue;
                 }
 
-                $isRouteFinded = false;
+                $is_route_found = false;
                 break;
             }
 
-            if ($isRouteFinded && $route_part_counted === count($path)) {
+            if ($is_route_found && $route_part_counted === count($path)) {
                 return $route;
             }
         }
